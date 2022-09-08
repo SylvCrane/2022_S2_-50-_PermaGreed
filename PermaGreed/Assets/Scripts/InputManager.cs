@@ -10,6 +10,10 @@ public class InputManager : MonoBehaviour
 
     private PlayerMotor motor; //From Assets/Input/PlayerMotor.cs
     private PlayerLook look; //Player Look
+    
+    //Temporary data denoting currently equipped gun by the player;
+    [SerializeField] GameObject gun;
+    DefaultGun gunScript;
 
     // Start is called before the first frame update
     void Awake()
@@ -20,7 +24,9 @@ public class InputManager : MonoBehaviour
 
         motor = GetComponent<PlayerMotor>();
         look = GetComponent<PlayerLook>();
+        gunScript = gun.GetComponent<DefaultGun>();
 
+        onFoot.Shoot.performed += ctx => gunScript.Shoot();
         onFoot.Jump.performed += ctx => motor.Jump(); //Jump Function - Anytime our jump is performed, our callbackcontext (ctx) to call our motor.Jump function
     }
 
