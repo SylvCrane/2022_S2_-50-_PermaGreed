@@ -76,7 +76,7 @@ public class CollectScript : MonoBehaviour
         co.isTrigger = false;
 
         //add forces
-        //rb.velocity = player.GetComponent<Rigidbody>().velocity;
+        rb.velocity = player.GetComponent<Rigidbody>().velocity;
 
         rb.AddForce(cam.forward * ForwardForce, ForceMode.Impulse);
         rb.AddForce(cam.up * UpwardForce, ForceMode.Impulse);
