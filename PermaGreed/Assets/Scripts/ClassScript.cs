@@ -5,6 +5,7 @@ using UnityEngine;
 public class ClassScript : MonoBehaviour
 {
     //This is a generic class that represents a test for a character class
+    //The 1, 2, 3, and rightclick use abilities
 
     private void Update()
     {
