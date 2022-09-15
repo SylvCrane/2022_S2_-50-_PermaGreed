@@ -7,6 +7,7 @@ public class DefaultGun : MonoBehaviour
     [SerializeField] GunStats stats;
     public Camera cam;
     public GameObject impactEffect;
+    public PlayerBalance moneyBalance;
 
     float TimeSinceFire;
     private bool gunAvailable() => !stats.reload && TimeSinceFire > 1f / (stats.fireRate / 60f);
@@ -26,6 +27,9 @@ public class DefaultGun : MonoBehaviour
             {
                 Debug.Log(hit.transform.name);
             }
+
+            //Currency Testing (Remove once enemies can die)
+            moneyBalance.AddCount();
 
             stats.tempAmmo--;
             TimeSinceFire = 0;

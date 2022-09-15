@@ -5,7 +5,7 @@ using UnityEngine.InputSystem; //This is required
 
 public class InputManager : MonoBehaviour
 {
-    private PlayerInput playerinput; //This is referred to the PlayerInput in Assets/Input/PlayerInput class
+    private PlayerInput playerinput; //This is referred to the PlayerInput in Assets/Scripts/Input/PlayerInput class
     private PlayerInput.OnFootActions onFoot; //Player Movement
 
     private PlayerMotor motor; //From Assets/Input/PlayerMotor.cs
@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] GameObject gun;
     DefaultGun gunScript;
 
-    // Start is called before the first frame update
+    // Awake is called when script instance is loaded, Awake works until the Scene (e.g. level 1) is finished or unloaded. Often used in finding tags beforehand.
     void Awake()
     {
         //Assigning defalut values on the variables
