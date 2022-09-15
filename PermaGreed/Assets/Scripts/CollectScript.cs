@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class CollectScript : MonoBehaviour
 {
+    //How to use:
+    //Attach collect script to the gun, make sure the gun has a rigidbody and box collider 
+    //Set the rigid body to Extrapolate and Continuous Speculative
+    //If the gun is mean't to be equipped by default, make the gun a child of the gun container object and set equipped on the collectscript to true
+    //otherwise set it to false and remove it as a child
+
     public DefaultGun gun;
     public Rigidbody rb;
     public BoxCollider co;
