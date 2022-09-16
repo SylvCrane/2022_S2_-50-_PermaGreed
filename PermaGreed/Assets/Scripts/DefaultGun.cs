@@ -5,13 +5,71 @@ using UnityEngine;
 public class DefaultGun : MonoBehaviour
 {
     [SerializeField] GunStats stats;
+    [SerializeField] GunStats currentGun;
     public Camera cam;
     public GameObject impactEffect;
     public ParticleSystem muzzle;
 
-    float TimeSinceFire;
-    private bool gunAvailable() => !stats.reload && TimeSinceFire > 1f / (stats.fireRate / 60f);
+    public string gunName;
+    public int ammoCount;
+    public float damage;
+    public bool reload;
+    public float range;
+    public float reloadDuration;
+    public bool hasSpread;
+    public float fireRate;
+    public float tempAmmo;
+    public GunStats.Rarity gunRarity;
+    GameObject rarityRectangle;
 
+    float TimeSinceFire;
+    private bool gunAvailable() => !currentGun.reload && TimeSinceFire > 1f / (currentGun.fireRate / 60f);
+
+    public void Start()
+    {
+        gunName = stats.gunName;
+        currentGun.gunName = gunName;
+
+        ammoCount = stats.ammoCount;
+        currentGun.ammoCount = ammoCount;
+
+        damage = stats.damage;
+        currentGun.damage = damage;
+
+        reload = stats.reload;
+        currentGun.reload = reload;
+
+        range = stats.range;
+        currentGun.range = range;
+
+        reloadDuration = stats.reloadDuration;
+        currentGun.reloadDuration = reloadDuration;
+
+        hasSpread = stats.hasSpread;
+        currentGun.hasSpread = hasSpread;
+
+        fireRate = stats.fireRate;
+        currentGun.fireRate = fireRate;
+
+        tempAmmo = stats.tempAmmo;
+        currentGun.tempAmmo = tempAmmo;
+
+        gunRarity = stats.gunRarity;
+        currentGun.gunRarity = gunRarity;
+
+        rarityRectangle = gameObject.transform.GetChild(gameObject.transform.childCount - 1).gameObject;
+        if (rarityRectangle != null)
+        {
+            Debug.Log("Yay!");
+        }
+
+        setRarityofRarityRectangle();
+    }
+
+    void setRarityofRarityRectangle()
+    {
+        
+    }
 
     public void Shoot()
     {
@@ -19,29 +77,29 @@ public class DefaultGun : MonoBehaviour
         
         RaycastHit hit;
 
-        if ((stats.tempAmmo > 0) && (gunAvailable()))
+        if ((currentGun.tempAmmo > 0) && (gunAvailable()))
         {
             muzzle.Play();
 
             Debug.Log(stats.tempAmmo);
 
-            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, stats.range))
+            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, currentGun.range))
             {
                 Enemy enemy = hit.transform.GetComponent<Enemy>();
 
                 if (enemy != null)
                 {
-                    enemy.healthDown(stats.damage);
+                    enemy.healthDown(currentGun.damage);
                 }
 
 
                 Debug.Log(hit.transform.name);
             }
 
-            stats.tempAmmo--;
+            currentGun.tempAmmo--;
             TimeSinceFire = 0;
         }
-        else if (stats.tempAmmo == 0)
+        else if (currentGun.tempAmmo == 0)
         {
             StartCoroutine(Reload());
         }
@@ -55,10 +113,10 @@ public class DefaultGun : MonoBehaviour
     private IEnumerator Reload()
     {
         Debug.Log("Reloading...");
-        stats.reload = true;
-        yield return new WaitForSeconds(stats.reloadDuration);
-        stats.tempAmmo = stats.ammoCount;
-        stats.reload = false;
+        currentGun.reload = true;
+        yield return new WaitForSeconds(currentGun.reloadDuration);
+        currentGun.tempAmmo = currentGun.ammoCount;
+        currentGun.reload = false;
         Debug.Log("Done!");
     }
 }

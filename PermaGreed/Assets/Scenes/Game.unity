@@ -957,6 +957,103 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 90d8e09703679534295bd2cacb73d6de, type: 3}
   m_PrefabInstance: {fileID: 546336704}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &254831046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 254831050}
+  - component: {fileID: 254831049}
+  - component: {fileID: 254831048}
+  - component: {fileID: 254831047}
+  m_Layer: 0
+  m_Name: RarityRectangle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &254831047
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254831046}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &254831048
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254831046}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 89ec91672c9614a4883b1f066d0e5db6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &254831049
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254831046}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &254831050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254831046}
+  m_LocalRotation: {x: -0, y: -0.71949345, z: -0, w: 0.69449925}
+  m_LocalPosition: {x: -0.012650895, y: -0.12914644, z: 0.0479809}
+  m_LocalScale: {x: 0.21853554, y: 0.028409617, z: 0.03661153}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2037635302}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: -92.025, z: 0}
 --- !u!1001 &289144466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13821,9 +13918,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 66dad8e1638208c4ebba45c1dfc77227, type: 2}
+  currentGun: {fileID: 11400000, guid: e655186a52d3e9047aaedb45beb99dea, type: 2}
   cam: {fileID: 0}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1762457415}
+  gunName: 
+  ammoCount: 0
+  damage: 0
+  reload: 0
+  range: 0
+  reloadDuration: 0
+  hasSpread: 0
+  fireRate: 0
+  tempAmmo: 0
+  gunRarity: 0
 --- !u!4 &1448225603 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 1fc6205e9672b6648a3b71f17597b881, type: 3}
@@ -19020,8 +19128,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762457414}
   m_LocalRotation: {x: -0, y: 0.720629, z: -0, w: 0.69332093}
-  m_LocalPosition: {x: 210.9302, y: 3.627172, z: 83.30443}
-  m_LocalScale: {x: 2.23003, y: 2.23003, z: 2.23003}
+  m_LocalPosition: {x: 0.14, y: 0.054, z: 0.005}
+  m_LocalScale: {x: 0.8176445, y: 0.8176445, z: 0.8176445}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1448225603}
@@ -19119,7 +19227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 1fc6205e9672b6648a3b71f17597b881, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 1fc6205e9672b6648a3b71f17597b881, type: 3}
       propertyPath: m_RootOrder
@@ -19273,9 +19381,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 8564a26eebb791d4885eef523cdcdf7d, type: 2}
+  currentGun: {fileID: 11400000, guid: e655186a52d3e9047aaedb45beb99dea, type: 2}
   cam: {fileID: 0}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1446778159}
+  gunName: 
+  ammoCount: 0
+  damage: 0
+  reload: 0
+  range: 0
+  reloadDuration: 0
+  hasSpread: 0
+  fireRate: 0
+  tempAmmo: 0
+  gunRarity: 0
 --- !u!4 &1859604923 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 28ebbcd7f4773384e867c255af2c669b, type: 3}
@@ -19943,9 +20062,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 3addad222c6790d44bb661ff5003a912, type: 2}
+  currentGun: {fileID: 11400000, guid: e655186a52d3e9047aaedb45beb99dea, type: 2}
   cam: {fileID: 1591250126}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 930681040}
+  gunName: 
+  ammoCount: 0
+  damage: 0
+  reload: 0
+  range: 0
+  reloadDuration: 0
+  hasSpread: 0
+  fireRate: 0
+  tempAmmo: 0
+  gunRarity: 0
 --- !u!4 &2037635302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6548879496589514802, guid: 3d6c7430bd21a564489df266ea8864e1, type: 3}
