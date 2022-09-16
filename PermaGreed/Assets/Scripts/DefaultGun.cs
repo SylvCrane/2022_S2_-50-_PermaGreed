@@ -7,6 +7,7 @@ public class DefaultGun : MonoBehaviour
     [SerializeField] GunStats stats;
     public Camera cam;
     public GameObject impactEffect;
+    public ParticleSystem muzzle;
 
     float TimeSinceFire;
     private bool gunAvailable() => !stats.reload && TimeSinceFire > 1f / (stats.fireRate / 60f);
@@ -20,10 +21,20 @@ public class DefaultGun : MonoBehaviour
 
         if ((stats.tempAmmo > 0) && (gunAvailable()))
         {
+            muzzle.Play();
+
             Debug.Log(stats.tempAmmo);
 
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, stats.range))
             {
+                Enemy enemy = hit.transform.GetComponent<Enemy>();
+
+                if (enemy != null)
+                {
+                    enemy.healthDown(stats.damage);
+                }
+
+
                 Debug.Log(hit.transform.name);
             }
 
