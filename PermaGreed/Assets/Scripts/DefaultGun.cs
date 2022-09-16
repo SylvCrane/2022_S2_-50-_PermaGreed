@@ -9,9 +9,6 @@ public class DefaultGun : MonoBehaviour
     public GameObject impactEffect;
     public ParticleSystem muzzle;
 
-    //Testing for currency
-    public PlayerBalance playerMoney;
-
     float TimeSinceFire;
     private bool gunAvailable() => !stats.reload && TimeSinceFire > 1f / (stats.fireRate / 60f);
 
@@ -27,7 +24,6 @@ public class DefaultGun : MonoBehaviour
             muzzle.Play();
 
             Debug.Log(stats.tempAmmo);
-            playerMoney.AddCount();
 
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, stats.range))
             {
@@ -37,6 +33,7 @@ public class DefaultGun : MonoBehaviour
                 {
                     enemy.healthDown(stats.damage);
                 }
+
 
                 Debug.Log(hit.transform.name);
             }

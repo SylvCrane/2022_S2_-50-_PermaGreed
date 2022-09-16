@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44036263, g: 0.48893732, b: 0.56910014, a: 1}
+  m_IndirectSpecularColor: {r: 0.4403623, g: 0.4889369, b: 0.5690995, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9183,6 +9183,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4223917803941058496, guid: 928c403cc1e17084ca14a22f572f6502, type: 3}
   m_PrefabInstance: {fileID: 7851619893451428390}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!114 &1324003610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9196,6 +9197,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countMoney: {fileID: 0}
+=======
+>>>>>>> parent of 7b2a475 (Merge branch 'Marson' into Czyrel)
 --- !u!1001 &1343070216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14433,7 +14436,6 @@ MonoBehaviour:
   cam: {fileID: 0}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1762457415}
-  playerMoney: {fileID: 0}
 --- !u!4 &1448225603 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 1fc6205e9672b6648a3b71f17597b881, type: 3}
@@ -20228,7 +20230,6 @@ MonoBehaviour:
   cam: {fileID: 0}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1446778159}
-  playerMoney: {fileID: 0}
 --- !u!4 &1859604923 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 28ebbcd7f4773384e867c255af2c669b, type: 3}
@@ -20457,7 +20458,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ac13eeb51ab913443b5a5d7057294423, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20876,38 +20877,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8599459219166737787, guid: 3d6c7430bd21a564489df266ea8864e1, type: 3}
-      propertyPath: m_Color.a
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599459219560335614, guid: 3d6c7430bd21a564489df266ea8864e1, type: 3}
-      propertyPath: m_Color.a
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599459219572298773, guid: 3d6c7430bd21a564489df266ea8864e1, type: 3}
-      propertyPath: m_Color.a
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599459219759500049, guid: 3d6c7430bd21a564489df266ea8864e1, type: 3}
-      propertyPath: m_Color.a
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599459219881961807, guid: 3d6c7430bd21a564489df266ea8864e1, type: 3}
-      propertyPath: m_Color.a
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599459219942058196, guid: 3d6c7430bd21a564489df266ea8864e1, type: 3}
-      propertyPath: m_Color.a
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599459220393425435, guid: 3d6c7430bd21a564489df266ea8864e1, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599459220627608729, guid: 3d6c7430bd21a564489df266ea8864e1, type: 3}
-      propertyPath: m_Color.a
-      value: 0.33333334
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d6c7430bd21a564489df266ea8864e1, type: 3}
 --- !u!1 &2037635300 stripped
@@ -20931,7 +20900,6 @@ MonoBehaviour:
   cam: {fileID: 1591250126}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 930681040}
-  playerMoney: {fileID: 1324003610}
 --- !u!4 &2037635302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6548879496589514802, guid: 3d6c7430bd21a564489df266ea8864e1, type: 3}
