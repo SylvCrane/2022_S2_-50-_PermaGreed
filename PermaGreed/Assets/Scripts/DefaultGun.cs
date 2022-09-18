@@ -21,92 +21,120 @@ public class DefaultGun : MonoBehaviour
     public float tempAmmo;
     public GunStats.Rarity gunRarity;
     GameObject rarityRectangle;
+    public bool updateCurrentOnce;
 
     float TimeSinceFire;
     private bool gunAvailable() => !currentGun.reload && TimeSinceFire > 1f / (currentGun.fireRate / 60f);
 
+    public Material common;
+    public Material uncommon;
+    public Material rare;
+    public Material epic;
+
     public void Start()
     {
         gunName = stats.gunName;
-        currentGun.gunName = gunName;
-
         ammoCount = stats.ammoCount;
-        currentGun.ammoCount = ammoCount;
-
         damage = stats.damage;
-        currentGun.damage = damage;
-
         reload = stats.reload;
-        currentGun.reload = reload;
-
         range = stats.range;
-        currentGun.range = range;
-
         reloadDuration = stats.reloadDuration;
-        currentGun.reloadDuration = reloadDuration;
-
         hasSpread = stats.hasSpread;
-        currentGun.hasSpread = hasSpread;
-
         fireRate = stats.fireRate;
-        currentGun.fireRate = fireRate;
-
         tempAmmo = stats.tempAmmo;
-        currentGun.tempAmmo = tempAmmo;
-
         gunRarity = stats.gunRarity;
+
+        if (transform.parent != null)
+        {
+            setToCurrent();
+        }
+        
+        setRarityofRarityRectangle();
+    }
+
+    void setToCurrent()
+    {
+        currentGun.gunName = gunName;
+        currentGun.ammoCount = ammoCount;        
+        currentGun.damage = damage;
+        currentGun.reload = reload;        
+        currentGun.range = range;       
+        currentGun.reloadDuration = reloadDuration;       
+        currentGun.hasSpread = hasSpread;        
+        currentGun.fireRate = fireRate;        
+        currentGun.tempAmmo = tempAmmo;        
         currentGun.gunRarity = gunRarity;
 
         rarityRectangle = gameObject.transform.GetChild(gameObject.transform.childCount - 1).gameObject;
-        if (rarityRectangle != null)
-        {
-            Debug.Log("Yay!");
-        }
-
-        setRarityofRarityRectangle();
     }
 
     void setRarityofRarityRectangle()
     {
-        
+        if (gunRarity == GunStats.Rarity.Common)
+        {
+            rarityRectangle.GetComponent<MeshRenderer>().material = common;
+
+            Debug.Log("It worked!");
+        }
+        else if (gunRarity == GunStats.Rarity.Uncommon)
+        {
+            rarityRectangle.GetComponent<MeshRenderer>().material = uncommon;
+        }
+        else if (gunRarity == GunStats.Rarity.Rare)
+        {
+            rarityRectangle.GetComponent<MeshRenderer>().material = rare;
+        }
+        else if (gunRarity == GunStats.Rarity.Epic)
+        {
+            rarityRectangle.GetComponent<MeshRenderer>().material = epic;
+        }
     }
 
     public void Shoot()
     {
-        Debug.Log("The shoot function is persumably working as intended");
-        
-        RaycastHit hit;
-
-        if ((currentGun.tempAmmo > 0) && (gunAvailable()))
+        if (transform.parent != null)
         {
-            muzzle.Play();
+            Debug.Log("The shoot function is persumably working as intended");
 
-            Debug.Log(stats.tempAmmo);
+            RaycastHit hit;
 
-            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, currentGun.range))
+            if ((currentGun.tempAmmo > 0) && (gunAvailable()))
             {
-                Enemy enemy = hit.transform.GetComponent<Enemy>();
+                muzzle.Play();
 
-                if (enemy != null)
+                Debug.Log(currentGun.tempAmmo);
+
+                if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, currentGun.range))
                 {
-                    enemy.healthDown(currentGun.damage);
+                    Enemy enemy = hit.transform.GetComponent<Enemy>();
+
+                    if (enemy != null)
+                    {
+                        enemy.healthDown(currentGun.damage);
+                    }
+
+
+                    Debug.Log(hit.transform.name);
                 }
 
-
-                Debug.Log(hit.transform.name);
+                currentGun.tempAmmo--;
+                TimeSinceFire = 0;
             }
-
-            currentGun.tempAmmo--;
-            TimeSinceFire = 0;
-        }
-        else if (currentGun.tempAmmo == 0)
-        {
-            StartCoroutine(Reload());
+            else if (currentGun.tempAmmo == 0)
+            {
+                StartCoroutine(Reload());
+            }
         }
     }
 
     private void Update()
     {
+        if ((transform.parent != null) && (this.gameObject.GetComponent<CollectScript>().equipped) && (updateCurrentOnce))
+        {
+            setToCurrent();
+            updateCurrentOnce = false;
+        }
+
         TimeSinceFire += Time.deltaTime;
     }
 
