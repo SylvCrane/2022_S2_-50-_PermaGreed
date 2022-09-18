@@ -9,19 +9,17 @@ public class CurrentGun : MonoBehaviour
 
     void Start()
     {
-        if (GameData.gunName == null)
-        {
-            GameData.gunName = "Revolver";
-        }
 
-        Debug.Log(GameData.gunName);
+        GameData.gunName = "Revolver";
+        GameData.ammoCount = 6;
+        GameData.damage = 10;
+        GameData.range = 50;
+        GameData.reloadDuration = 2;
+        GameData.fireRate = 60;
+        GameData.gunRarity = GunStats.Rarity.Common;
 
+        
         currentGun = Resources.Load<Sprite>(GameData.gunName);
-
-        if (currentGun == null)
-        {
-            Debug.Log("There is no gun loaded");
-        }
     }
 
     // Update is called once per frame
