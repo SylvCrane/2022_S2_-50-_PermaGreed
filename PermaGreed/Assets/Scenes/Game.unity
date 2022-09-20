@@ -1782,7 +1782,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1919005491}
-  ammoDisplay: {fileID: 0}
+  ammoDisplay: {fileID: 1145595622}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -7072,7 +7072,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 452336092}
-  ammoDisplay: {fileID: 0}
+  ammoDisplay: {fileID: 1145595622}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -8218,7 +8218,7 @@ MonoBehaviour:
   cam: {fileID: 1591250126}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 875492295}
-  ammoDisplay: {fileID: 0}
+  ammoDisplay: {fileID: 1145595622}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -18485,7 +18485,7 @@ MonoBehaviour:
   cam: {fileID: 1591250126}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1561763843}
-  ammoDisplay: {fileID: 0}
+  ammoDisplay: {fileID: 1145595622}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -28478,7 +28478,7 @@ MonoBehaviour:
   cam: {fileID: 1591250126}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 729566426}
-  ammoDisplay: {fileID: 0}
+  ammoDisplay: {fileID: 1145595622}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -28723,7 +28723,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1710342549}
-  ammoDisplay: {fileID: 0}
+  ammoDisplay: {fileID: 1145595622}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -29451,7 +29451,7 @@ GameObject:
   - component: {fileID: 1145595623}
   - component: {fileID: 1145595622}
   m_Layer: 5
-  m_Name: Ammo
+  m_Name: AmmoCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30066,7 +30066,7 @@ MonoBehaviour:
   cam: {fileID: 1591250126}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1307738730}
-  ammoDisplay: {fileID: 0}
+  ammoDisplay: {fileID: 1145595622}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -30358,7 +30358,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1940329173}
-  ammoDisplay: {fileID: 0}
+  ammoDisplay: {fileID: 1145595622}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -40717,7 +40717,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1762457415}
-  ammoDisplay: {fileID: 0}
+  ammoDisplay: {fileID: 1145595622}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -46055,7 +46055,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 2099739977}
-  ammoDisplay: {fileID: 0}
+  ammoDisplay: {fileID: 1145595622}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -56466,7 +56466,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1446778159}
-  ammoDisplay: {fileID: 0}
+  ammoDisplay: {fileID: 1145595622}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -72368,7 +72368,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   impactEffect: {fileID: 0}
   muzzle: {fileID: 735677931}
-  ammoDisplay: {fileID: 0}
+  ammoDisplay: {fileID: 1145595622}
   gunName: 
   ammoCount: 0
   damage: 0
