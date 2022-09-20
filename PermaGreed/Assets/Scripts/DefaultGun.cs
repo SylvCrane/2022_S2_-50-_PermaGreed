@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class DefaultGun : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class DefaultGun : MonoBehaviour
 
     //The muzzle effect
     public ParticleSystem muzzle;
+
+    public TextMeshProUGUI ammoDisplay;
 
     //These values are representative of the values found in the gun scriptableObjects, as well as some bools.
     public string gunName;
@@ -50,6 +54,7 @@ public class DefaultGun : MonoBehaviour
 
     public void Start()
     {
+
         //The initial portion of the script being active is assigning all of the values of the gun's assigned scriptableObject to
         //this gun's primitive variables.
         gunName = stats.gunName;
@@ -178,6 +183,8 @@ public class DefaultGun : MonoBehaviour
 
         //Increments the time since the last shot.
         TimeSinceFire += Time.deltaTime;
+
+        ammoDisplay.text = currentGun.tempAmmo.ToString();
     }
 
     private IEnumerator Reload()
