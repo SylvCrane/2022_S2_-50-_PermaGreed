@@ -59,5 +59,10 @@ public class UnitHealth
             _currentHealth = _currentMaxHealth;
         }
     }
+    public int GetHealth()
+    {
+        return _currentHealth;
+    }
+
 
 }

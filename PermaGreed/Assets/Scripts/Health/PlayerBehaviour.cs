@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] Healthbar _healthbar;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Tab))
@@ -24,6 +23,10 @@ public class PlayerBehaviour : MonoBehaviour
         {
             PlayerHeal(10);
             Debug.Log(GameManager.gameManager._playerHealth.Health);
+        }
+        if (GameManager.gameManager._playerHealth.GetHealth() <= 0)
+        {
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
