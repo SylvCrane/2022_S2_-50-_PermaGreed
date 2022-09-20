@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//This script is used to show the current rarity of the gun the player is using in the Upgrades Menu, note the calls to gameData.
 public class rarityIndicator : MonoBehaviour
 {
+
+    //This will be the text printed to the screen.
     Text currentRarity;
 
     // Update is called once per frame
@@ -16,6 +19,7 @@ public class rarityIndicator : MonoBehaviour
 
         if (GameData.gunRarity == GunStats.Rarity.Common)
         {
+            //The values of the text and the color are set according to the GameData rarity.
             this.gameObject.GetComponent<Text>().text = "Common";
             this.gameObject.GetComponent<Text>().color = new Color(255, 255, 255);
         }
