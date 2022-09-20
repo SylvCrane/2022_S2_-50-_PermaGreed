@@ -9,7 +9,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Start()
     {
-        
+        Invoke("PlayerTakeDmg", Random.Range(0, 8));
     }
 
     void Update()
@@ -34,6 +34,11 @@ public class PlayerBehaviour : MonoBehaviour
     {
         GameManager.gameManager._playerHealth.DmgUnit(dmg);
         _healthbar.SetHealth(GameManager.gameManager._playerHealth.Health);
+
+        if (!DI_System.CheckIfObjectInSight(this.transform))
+        {
+            DI_System.CreateIndicator(this.transform);
+        }
     }
 
     private void PlayerHeal(int healing)
