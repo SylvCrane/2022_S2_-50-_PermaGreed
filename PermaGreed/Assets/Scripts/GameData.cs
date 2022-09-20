@@ -10,6 +10,7 @@ public class GameData : MonoBehaviour
     public static int ammoCount;
     public static float damage, range, reloadDuration, fireRate, tempAmmo;
     public static GunStats.Rarity gunRarity;
+    public static int currency;
 
 
 

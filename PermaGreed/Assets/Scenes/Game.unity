@@ -1621,6 +1621,7 @@ MonoBehaviour:
   fireRate: 0
   tempAmmo: 0
   gunRarity: 0
+  updateCurrentOnce: 0
   common: {fileID: 2100000, guid: 89ec91672c9614a4883b1f066d0e5db6, type: 2}
   uncommon: {fileID: 2100000, guid: 1ea59cffc0c1ece4a9b4de2de38a5f12, type: 2}
   rare: {fileID: 2100000, guid: 5e7a243e898b7144a8e57b45a41f9391, type: 2}
@@ -6945,6 +6946,7 @@ MonoBehaviour:
   fireRate: 0
   tempAmmo: 0
   gunRarity: 0
+  updateCurrentOnce: 0
   common: {fileID: 2100000, guid: 89ec91672c9614a4883b1f066d0e5db6, type: 2}
   uncommon: {fileID: 2100000, guid: 1ea59cffc0c1ece4a9b4de2de38a5f12, type: 2}
   rare: {fileID: 2100000, guid: 5e7a243e898b7144a8e57b45a41f9391, type: 2}
@@ -8075,6 +8077,7 @@ MonoBehaviour:
   fireRate: 0
   tempAmmo: 0
   gunRarity: 0
+  updateCurrentOnce: 0
   common: {fileID: 2100000, guid: 89ec91672c9614a4883b1f066d0e5db6, type: 2}
   uncommon: {fileID: 2100000, guid: 1ea59cffc0c1ece4a9b4de2de38a5f12, type: 2}
   rare: {fileID: 2100000, guid: 5e7a243e898b7144a8e57b45a41f9391, type: 2}
@@ -18449,6 +18452,7 @@ MonoBehaviour:
   fireRate: 0
   tempAmmo: 0
   gunRarity: 0
+  updateCurrentOnce: 0
   common: {fileID: 2100000, guid: 89ec91672c9614a4883b1f066d0e5db6, type: 2}
   uncommon: {fileID: 2100000, guid: 1ea59cffc0c1ece4a9b4de2de38a5f12, type: 2}
   rare: {fileID: 2100000, guid: 5e7a243e898b7144a8e57b45a41f9391, type: 2}
@@ -28549,6 +28553,7 @@ MonoBehaviour:
   fireRate: 0
   tempAmmo: 0
   gunRarity: 0
+  updateCurrentOnce: 0
   common: {fileID: 2100000, guid: 89ec91672c9614a4883b1f066d0e5db6, type: 2}
   uncommon: {fileID: 2100000, guid: 1ea59cffc0c1ece4a9b4de2de38a5f12, type: 2}
   rare: {fileID: 2100000, guid: 5e7a243e898b7144a8e57b45a41f9391, type: 2}
@@ -28808,6 +28813,7 @@ MonoBehaviour:
   fireRate: 0
   tempAmmo: 0
   gunRarity: 0
+  updateCurrentOnce: 0
   common: {fileID: 2100000, guid: 89ec91672c9614a4883b1f066d0e5db6, type: 2}
   uncommon: {fileID: 2100000, guid: 1ea59cffc0c1ece4a9b4de2de38a5f12, type: 2}
   rare: {fileID: 2100000, guid: 5e7a243e898b7144a8e57b45a41f9391, type: 2}
@@ -30031,6 +30037,7 @@ MonoBehaviour:
   fireRate: 0
   tempAmmo: 0
   gunRarity: 0
+  updateCurrentOnce: 0
   common: {fileID: 2100000, guid: 89ec91672c9614a4883b1f066d0e5db6, type: 2}
   uncommon: {fileID: 2100000, guid: 1ea59cffc0c1ece4a9b4de2de38a5f12, type: 2}
   rare: {fileID: 2100000, guid: 5e7a243e898b7144a8e57b45a41f9391, type: 2}
@@ -30092,6 +30099,7 @@ GameObject:
   - component: {fileID: 1273392707}
   - component: {fileID: 1273392706}
   - component: {fileID: 1273392705}
+  - component: {fileID: 1273392709}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -30177,6 +30185,28 @@ Transform:
   m_Father: {fileID: 432564425}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!195 &1273392709
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273392704}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!4 &1293908655 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 90d8e09703679534295bd2cacb73d6de, type: 3}
@@ -30314,6 +30344,7 @@ MonoBehaviour:
   fireRate: 0
   tempAmmo: 0
   gunRarity: 0
+  updateCurrentOnce: 0
   common: {fileID: 2100000, guid: 89ec91672c9614a4883b1f066d0e5db6, type: 2}
   uncommon: {fileID: 2100000, guid: 1ea59cffc0c1ece4a9b4de2de38a5f12, type: 2}
   rare: {fileID: 2100000, guid: 5e7a243e898b7144a8e57b45a41f9391, type: 2}
@@ -35391,6 +35422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 2037635300}
+  gunSwitch: 0
 --- !u!114 &1324003598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40644,6 +40676,7 @@ MonoBehaviour:
   fireRate: 0
   tempAmmo: 0
   gunRarity: 0
+  updateCurrentOnce: 0
   common: {fileID: 2100000, guid: 89ec91672c9614a4883b1f066d0e5db6, type: 2}
   uncommon: {fileID: 2100000, guid: 1ea59cffc0c1ece4a9b4de2de38a5f12, type: 2}
   rare: {fileID: 2100000, guid: 5e7a243e898b7144a8e57b45a41f9391, type: 2}
@@ -45980,6 +46013,7 @@ MonoBehaviour:
   fireRate: 0
   tempAmmo: 0
   gunRarity: 0
+  updateCurrentOnce: 0
   common: {fileID: 2100000, guid: 89ec91672c9614a4883b1f066d0e5db6, type: 2}
   uncommon: {fileID: 2100000, guid: 1ea59cffc0c1ece4a9b4de2de38a5f12, type: 2}
   rare: {fileID: 2100000, guid: 5e7a243e898b7144a8e57b45a41f9391, type: 2}
@@ -56313,6 +56347,7 @@ MonoBehaviour:
   fireRate: 0
   tempAmmo: 0
   gunRarity: 0
+  updateCurrentOnce: 0
   common: {fileID: 2100000, guid: 89ec91672c9614a4883b1f066d0e5db6, type: 2}
   uncommon: {fileID: 2100000, guid: 1ea59cffc0c1ece4a9b4de2de38a5f12, type: 2}
   rare: {fileID: 2100000, guid: 5e7a243e898b7144a8e57b45a41f9391, type: 2}
@@ -66789,6 +66824,7 @@ MonoBehaviour:
   fireRate: 0
   tempAmmo: 0
   gunRarity: 0
+  updateCurrentOnce: 0
   common: {fileID: 2100000, guid: 89ec91672c9614a4883b1f066d0e5db6, type: 2}
   uncommon: {fileID: 2100000, guid: 1ea59cffc0c1ece4a9b4de2de38a5f12, type: 2}
   rare: {fileID: 2100000, guid: 5e7a243e898b7144a8e57b45a41f9391, type: 2}
@@ -72294,6 +72330,7 @@ MonoBehaviour:
   fireRate: 0
   tempAmmo: 0
   gunRarity: 0
+  updateCurrentOnce: 0
   common: {fileID: 2100000, guid: 89ec91672c9614a4883b1f066d0e5db6, type: 2}
   uncommon: {fileID: 2100000, guid: 1ea59cffc0c1ece4a9b4de2de38a5f12, type: 2}
   rare: {fileID: 2100000, guid: 5e7a243e898b7144a8e57b45a41f9391, type: 2}
