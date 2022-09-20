@@ -18,7 +18,7 @@ public class GunManager : MonoBehaviour
         if (gunContainer.transform.GetChild(0) != null)
         {
             gunToReplace = gunContainer.transform.GetChild(0).gameObject;
-   
+
             if (gunToReplace.GetComponent<DefaultGun>().gunRarity != GameData.gunRarity)
             {
                 Debug.Log("A difference was found!");
