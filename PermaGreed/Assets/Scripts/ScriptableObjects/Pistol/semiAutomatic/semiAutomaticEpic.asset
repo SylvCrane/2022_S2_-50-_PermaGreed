@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e19010f7065c24a96de490f1a705f2, type: 3}
-  m_Name: Revolver
+  m_Name: semiAutomaticEpic
   m_EditorClassIdentifier: 
-  gunName: Revolver
-  ammoCount: 6
-  damage: 10
+  gunName: semiAutomatic
+  ammoCount: 24
+  damage: 40
   reload: 0
   range: 50
-  reloadDuration: 2
+  reloadDuration: 1
   hasSpread: 0
-  fireRate: 60
-  tempAmmo: 6
+  fireRate: 30
+  tempAmmo: 24
+  gunRarity: 3
