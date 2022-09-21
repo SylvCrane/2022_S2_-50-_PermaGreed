@@ -25,35 +25,45 @@ public class GunManager : MonoBehaviour
     void Update()
     {
         //This will check if teh guncontainer has a child object, being a gun.
-        if (gunContainer.transform.GetChild(0) != null)
+        try
         {
-            //assign to gunToReplace
-            gunToReplace = gunContainer.transform.GetChild(0).gameObject;
-
-            //If the gun is found to be different, it will replace it.
-            if (gunToReplace.GetComponent<DefaultGun>().gunRarity != GameData.gunRarity)
+            if (gunContainer.transform.GetChild(0) != null)
             {
-                Debug.Log("A difference was found!");
+                //assign to gunToReplace
+                gunToReplace = gunContainer.transform.GetChild(0).gameObject;
 
-                string newGunNamePartial = gunToReplace.GetComponent<DefaultGun>().gunName;
-                Debug.Log(newGunNamePartial);
-                newGunName = newGunNamePartial + GameData.gunRarity;
-                Debug.Log(newGunName);
-                
-                //Finding the new gun and making it active
-                replacementGun = guns.transform.Find(newGunName).gameObject;
-                replacementGun.SetActive(true);
+                //If the gun is found to be different, it will replace it.
+                if (gunToReplace.GetComponent<DefaultGun>().gunRarity != GameData.gunRarity)
+                {
+                    Debug.Log("A difference was found!");
 
-                //Setting the replacement gun to be a child of the gunContainer
-                replacementGun.transform.parent = gunContainer.transform;
-                GameObject.Destroy(gunToReplace);
+                    string newGunNamePartial = gunToReplace.GetComponent<DefaultGun>().gunName;
+                    Debug.Log(newGunNamePartial);
+                    newGunName = newGunNamePartial + GameData.gunRarity;
+                    Debug.Log(newGunName);
 
-                //Making sure the Shoot() function still works when a gun is replaced
-                player.GetComponent<InputManager>().gun = replacementGun;
-                player.GetComponent<InputManager>().gunSwitch = true;
+                    //Finding the new gun and making it active
+                    replacementGun = guns.transform.Find(newGunName).gameObject;
+                    replacementGun.SetActive(true);
 
+                    //Setting the replacement gun to be a child of the gunContainer
+                    replacementGun.transform.parent = gunContainer.transform;
+                    GameObject.Destroy(gunToReplace);
+
+                    //Making sure the Shoot() function still works when a gun is replaced
+                    player.GetComponent<InputManager>().gun = replacementGun;
+                    player.GetComponent<InputManager>().gunSwitch = true;
+
+                }
             }
         }
+        catch (System.Exception e)
+        {
+
+        }
+        
+        
+        
     }
 
  
