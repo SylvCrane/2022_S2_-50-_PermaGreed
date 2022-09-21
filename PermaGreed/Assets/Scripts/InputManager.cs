@@ -12,8 +12,10 @@ public class InputManager : MonoBehaviour
     private PlayerLook look; //Player Look
     
     //Temporary data denoting currently equipped gun by the player;
-    [SerializeField] GameObject gun;
+    public GameObject gun;
     DefaultGun gunScript;
+
+    public bool gunSwitch;
 
     // Start is called before the first frame update
     void Awake()
@@ -33,6 +35,14 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (gunSwitch)
+        {
+            gunScript = gun.GetComponent<DefaultGun>();
+            onFoot.Shoot.performed += ctx => gunScript.Shoot();
+
+            gunSwitch = false;
+        }
+
         //Telling the PlayerMotor to move, by using values from our MovementAction
         motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
     }
