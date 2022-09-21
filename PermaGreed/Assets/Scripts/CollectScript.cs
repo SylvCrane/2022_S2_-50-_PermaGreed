@@ -58,7 +58,6 @@ public class CollectScript : MonoBehaviour
     private void collect()
     {
         equipped = true;
-        this.gameObject.GetComponent<DefaultGun>().updateCurrentOnce = true;
         full = true;
 
         transform.SetParent(gunContainer);
