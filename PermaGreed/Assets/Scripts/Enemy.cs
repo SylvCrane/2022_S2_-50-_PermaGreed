@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //This script will be called by the DefaultGun and attached to the enemies such that they can be killed with the gun.
-
     public float health = 30f;
 
     public void healthDown(float amount)
