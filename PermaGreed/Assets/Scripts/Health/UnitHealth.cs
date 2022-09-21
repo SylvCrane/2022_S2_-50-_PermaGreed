@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UnitHealth
 {
+    // Health type of class for many different health modification, if needed for the future
+
     // Fields 
     int _currentHealth;
     int _currentMaxHealth;
@@ -41,6 +43,7 @@ public class UnitHealth
     }
 
     // Methods
+    // This will notify the player how much an enemy is dealing damage to the player
     public void DmgUnit(int dmgAmount)
     {
         if (_currentHealth > 0)
@@ -48,8 +51,11 @@ public class UnitHealth
             _currentHealth -= dmgAmount;
         }
     }
+    // This will notify the player how much healing the player is getting
+    // Healing will also stop at the max health
     public void HealUnit(int healAmount)
     {
+
         if (_currentHealth < _currentMaxHealth)
         {
             _currentHealth += healAmount;
@@ -59,6 +65,8 @@ public class UnitHealth
             _currentHealth = _currentMaxHealth;
         }
     }
+
+    // Return needed to show how much health is left from the player
     public int GetHealth()
     {
         return _currentHealth;

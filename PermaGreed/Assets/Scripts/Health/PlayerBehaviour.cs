@@ -9,9 +9,12 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Start()
     {
-        Invoke("PlayerTakeDmg", Random.Range(0, 8));
+       
     }
 
+
+    // This is to test health being damage by pressing the 2 keywords
+    // When player health goes down to 0 the screen will be redirected to the main menu
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Tab))
@@ -30,6 +33,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
+    // Pass in how much damage player is going to take
     private void PlayerTakeDmg(int dmg)
     {
         GameManager.gameManager._playerHealth.DmgUnit(dmg);
@@ -41,6 +45,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
+    // Pass in how much healing player is going to take
     private void PlayerHeal(int healing)
     {
         GameManager.gameManager._playerHealth.HealUnit(healing);

@@ -11,6 +11,7 @@ public class DI_System : MonoBehaviour
     [SerializeField] private new Camera camera = null;
     [SerializeField] private Transform player = null;
 
+    // To keep track all of the created indicator
     private Dictionary<Transform, DamageIndicator> Indicators = new Dictionary<Transform, DamageIndicator>();
 
     #region Delegates 
@@ -18,6 +19,7 @@ public class DI_System : MonoBehaviour
     public static Func<Transform, bool> CheckIfObjectInSight = null;
     #endregion
 
+    // Need to be created for the Delegates
     private void OnEnable()
     {
         CreateIndicator += Create;
@@ -28,6 +30,8 @@ public class DI_System : MonoBehaviour
         CreateIndicator -= Create;
         CheckIfObjectInSight -= InSight;
     }
+
+    // Checks if the damage indicator is currently existing in the dictionary
     void Create(Transform target)
     {
         if (Indicators.ContainsKey(target))
@@ -40,6 +44,7 @@ public class DI_System : MonoBehaviour
 
         Indicators.Add(target, newIndicator);
     }
+    // Check if the object is within the cameras view
     bool InSight(Transform t)
     {
         Vector3 screenPoint = camera.WorldToViewportPoint(t.position);
