@@ -55,21 +55,39 @@ public class CollectScript : MonoBehaviour
         }
     }
 
-    private void collect()
+    public void collect()
     {
         equipped = true;
         this.gameObject.GetComponent<DefaultGun>().updateCurrentOnce = true;
         full = true;
 
         transform.SetParent(gunContainer);
+
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         transform.localScale = Vector3.one;
 
+        if (this.gameObject.name.Contains("ScifiHandGun"))
+        {
+            transform.localEulerAngles = new Vector3(0, 90, 0);
+            transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        }
+        else if (this.gameObject.name.Contains("semiAutomatic"))
+        {
+            transform.localEulerAngles = new Vector3(0, -90, 0);
+            transform.localScale = Vector3.one;
+        }
+        else if (this.gameObject.name.Contains("Revolver"))
+        {
+            transform.localRotation = Quaternion.Euler(Vector3.zero);
+            transform.localScale = Vector3.one;
+        }
+
         rb.isKinematic = true;
         co.isTrigger = true;
-
         gun.enabled = true;
+
+        
     }
 
     private void drop()

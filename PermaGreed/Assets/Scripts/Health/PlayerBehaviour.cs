@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    public deathOperations death;
     [SerializeField] Healthbar _healthbar;
 
     void Start()
@@ -26,6 +27,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
         if (GameManager.gameManager._playerHealth.GetHealth() <= 0)
         {
+            death.whenPlayerDies();
             SceneManager.LoadScene("MainMenu");
         }
     }
