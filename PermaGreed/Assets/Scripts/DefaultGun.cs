@@ -139,6 +139,8 @@ public class DefaultGun : MonoBehaviour
                 //Plays the muzzle particle effect for its appropriate length of time.
                 muzzle.Play();
 
+                GetComponent<AudioSource>().Play();
+
                 Debug.Log(currentGun.tempAmmo);
 
                 //If the rayCast hits an object
