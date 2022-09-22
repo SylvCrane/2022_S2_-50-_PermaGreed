@@ -22,6 +22,15 @@ public class GunManager : MonoBehaviour
     GameObject replacementGun;
     public GameObject player;
 
+    bool differentGunChange = true;
+
+    public void resetInputManager()
+    {
+        gunToReplace = gunToReplace = gunContainer.transform.GetChild(0).gameObject;
+        player.GetComponent<InputManager>().gun = gunToReplace;
+        player.GetComponent<InputManager>().gunSwitch = true;
+    }
+
     void Update()
     {
         //This will check if teh guncontainer has a child object, being a gun.
@@ -33,7 +42,28 @@ public class GunManager : MonoBehaviour
                 gunToReplace = gunContainer.transform.GetChild(0).gameObject;
 
                 //If the gun is found to be different, it will replace it.
-                if (gunToReplace.GetComponent<DefaultGun>().gunRarity != GameData.gunRarity)
+                if (gunToReplace.GetComponent<DefaultGun>().gunName != GameData.gunName)
+                {
+                    if (differentGunChange)
+                    {
+                        Debug.Log("You shouldn't be seeing this, you sneaky snoo...");
+
+                        string newGunNamePartial = GameData.gunName;
+                        newGunName = newGunNamePartial + GameData.gunRarity;
+
+                        replacementGun = guns.transform.Find(newGunName).gameObject;
+                        replacementGun.transform.parent = gunContainer.transform;
+                        replacementGun.GetComponent<CollectScript>().collect();
+                        replacementGun.SetActive(true);
+                        GameObject.Destroy(gunToReplace);
+
+                        player.GetComponent<InputManager>().gun = replacementGun;
+                        player.GetComponent<InputManager>().gunSwitch = true;
+
+                        differentGunChange = false;
+                    }
+                }
+                else if (gunToReplace.GetComponent<DefaultGun>().gunRarity != GameData.gunRarity)
                 {
                     Debug.Log("A difference was found!");
 
@@ -61,8 +91,8 @@ public class GunManager : MonoBehaviour
         {
 
         }
-        
-        
+
+        differentGunChange = false;
         
     }
 
