@@ -7,7 +7,7 @@ public class PlayerBalance : MonoBehaviour
 {
     public TextMeshProUGUI countMoney; //[UI] This links to the Canvas Currency
 
-    private int balance;
+    public int balance;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class PlayerBalance : MonoBehaviour
 
     public void AddCount()
     {
-        balance++;
+        balance += 10;
         TextCurrency();
     }
 

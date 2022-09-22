@@ -15,25 +15,57 @@ public class UpgradeGun : MonoBehaviour
         //When the button is pressed, the rarity of the gun is updated in gameData. Because of the updating rarityIndicator, the change is instantaneous.
         if (GameData.gunRarity == GunStats.Rarity.Common)
         {
-            GameData.gunRarity = GunStats.Rarity.Uncommon;
-            Debug.Log(GameData.gunRarity);
+            if (GameData.currency >= 50)
+            {
+                GameData.gunRarity = GunStats.Rarity.Uncommon;
+                Debug.Log(GameData.gunRarity);
+                GameData.currency -= 50;
+            }
+            else
+            {
+                sendToCannotUpgrade();
+            }
         }
         else if (GameData.gunRarity == GunStats.Rarity.Uncommon)
         {
-            GameData.gunRarity = GunStats.Rarity.Rare;
-            Debug.Log(GameData.gunRarity);
+            if (GameData.currency >= 100)
+            {
+                GameData.gunRarity = GunStats.Rarity.Rare;
+                Debug.Log(GameData.gunRarity);
+                GameData.currency -= 100;
+            }
+            else
+            {
+                sendToCannotUpgrade();
+            }
         }
         else if (GameData.gunRarity == GunStats.Rarity.Rare)
         {
+            if (GameData.currency >= 200)
+            {
+                GameData.gunRarity = GunStats.Rarity.Rare;
+                Debug.Log(GameData.gunRarity);
+                GameData.currency -= 200;
+            }
+            else
+            {
+                sendToCannotUpgrade();
+            }
+
             GameData.gunRarity = GunStats.Rarity.Epic;
             Debug.Log(GameData.gunRarity);
         }
         else if (GameData.gunRarity == GunStats.Rarity.Epic)
         {
             //Of course, there is a limit to the upgrades. Therefore, if the player has maxed out their upgrades, the upgradeMenu is set to not active
-            //and the cannotUpgradeMenu is set to active.
-            upgradeMenu.SetActive(false);
-            cannotUpgradeGunMenu.SetActive(true);
+            //and the cannotUpgradeMenu is set to active. This also occurs when the player does not have enough funds.
+            sendToCannotUpgrade();
         }
+    }
+
+    public void sendToCannotUpgrade()
+    {
+        upgradeMenu.SetActive(false);
+        cannotUpgradeGunMenu.SetActive(true);
     }
 }
