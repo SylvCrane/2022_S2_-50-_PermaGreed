@@ -179,6 +179,8 @@ public class DefaultGun : MonoBehaviour
         {
             setToCurrent();
 
+            this.gameObject.transform.parent.GetComponent<GunManager>().resetInputManager();
+
             //Set to false so it is not called again unless the player once again switches their gun.
             updateCurrentOnce = false;
         }

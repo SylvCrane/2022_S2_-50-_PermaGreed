@@ -15,13 +15,17 @@ public class CurrentGun : MonoBehaviour
         //gun the player is currently holding. If the player is not currently holding a gun, this will default to 
         //the revolver preset laid out below.
 
-        GameData.gunName = "Revolver";
-        GameData.ammoCount = 6;
-        GameData.damage = 10;
-        GameData.range = 50;
-        GameData.reloadDuration = 2;
-        GameData.fireRate = 60;
-        GameData.gunRarity = GunStats.Rarity.Common;
+        if (GameData.gunName == null)
+        {
+            GameData.gunName = "Revolver";
+            GameData.ammoCount = 6;
+            GameData.damage = 10;
+            GameData.range = 50;
+            GameData.reloadDuration = 2;
+            GameData.fireRate = 60;
+            GameData.gunRarity = GunStats.Rarity.Common;
+        }
+        
 
         //This as well as the values above call from the static script GameData, which houses all data that needs to be transferred between scenes
         //for the game.
