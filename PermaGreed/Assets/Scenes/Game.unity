@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44036263, g: 0.48893732, b: 0.56910014, a: 1}
+  m_IndirectSpecularColor: {r: 0.4403623, g: 0.4889369, b: 0.5690995, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1685,7 +1685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28ebbcd7f4773384e867c255af2c669b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.5
+      value: 80.52663
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28ebbcd7f4773384e867c255af2c669b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1693,7 +1693,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28ebbcd7f4773384e867c255af2c669b, type: 3}
       propertyPath: m_LocalPosition.z
+<<<<<<< HEAD
       value: 12.76
+=======
+      value: -181.402
+>>>>>>> parent of b7af758 (sound effects added)
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28ebbcd7f4773384e867c255af2c669b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1765,7 +1769,10 @@ MonoBehaviour:
   equipped: 0
   ForwardForce: 0
   UpwardForce: 0
+<<<<<<< HEAD
   soundManager: {fileID: 365311836}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!114 &365311830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1784,7 +1791,6 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1026416208}
   ammoDisplay: {fileID: 1145595622}
-  soundManager: {fileID: 365311836}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -1829,6 +1835,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+<<<<<<< HEAD
 --- !u!82 &365311835
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2132,6 +2139,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!1001 &377661074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7457,7 +7466,10 @@ MonoBehaviour:
   equipped: 0
   ForwardForce: 0
   UpwardForce: 0
+<<<<<<< HEAD
   soundManager: {fileID: 472628639}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!114 &472628635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7476,7 +7488,6 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   muzzle: {fileID: 452336092}
   ammoDisplay: {fileID: 1145595622}
-  soundManager: {fileID: 472628639}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -7521,6 +7532,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+<<<<<<< HEAD
 --- !u!82 &472628638
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7824,6 +7836,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!4 &489474830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 9ae7f9f9eacff4142b21eb85ae606fdc, type: 3}
@@ -9159,7 +9173,10 @@ MonoBehaviour:
   equipped: 1
   ForwardForce: 3
   UpwardForce: 3
+<<<<<<< HEAD
   soundManager: {fileID: 6548879496162890887}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!114 &716065981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9178,7 +9195,6 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   muzzle: {fileID: 875492295}
   ammoDisplay: {fileID: 1145595622}
-  soundManager: {fileID: 6548879496162890887}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -14193,7 +14209,10 @@ MonoBehaviour:
   equipped: 0
   ForwardForce: 0
   UpwardForce: 0
+<<<<<<< HEAD
   soundManager: {fileID: 743091406}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!114 &743091402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14212,7 +14231,10 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   muzzle: {fileID: 974684118}
   ammoDisplay: {fileID: 1145595622}
+<<<<<<< HEAD
   soundManager: {fileID: 743091406}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
   gunName: 
   ammoCount: 0
   damage: 0
@@ -20021,7 +20043,10 @@ MonoBehaviour:
   equipped: 1
   ForwardForce: 3
   UpwardForce: 3
+<<<<<<< HEAD
   soundManager: {fileID: 6548879496275977003}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!114 &860945185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20040,7 +20065,6 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1561763843}
   ammoDisplay: {fileID: 1145595622}
-  soundManager: {fileID: 6548879496275977003}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -30113,7 +30137,10 @@ MonoBehaviour:
   equipped: 1
   ForwardForce: 3
   UpwardForce: 3
+<<<<<<< HEAD
   soundManager: {fileID: 6548879496211404304}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!114 &931892802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30132,7 +30159,6 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   muzzle: {fileID: 729566426}
   ammoDisplay: {fileID: 1145595622}
-  soundManager: {fileID: 6548879496211404304}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -30360,7 +30386,10 @@ MonoBehaviour:
   equipped: 0
   ForwardForce: 0
   UpwardForce: 0
+<<<<<<< HEAD
   soundManager: {fileID: 955475439}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!114 &955475435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30379,7 +30408,6 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1710342549}
   ammoDisplay: {fileID: 1145595622}
-  soundManager: {fileID: 955475439}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -30424,6 +30452,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+<<<<<<< HEAD
 --- !u!82 &955475438
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30727,6 +30756,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!1001 &963987369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42004,7 +42035,10 @@ MonoBehaviour:
   equipped: 1
   ForwardForce: 3
   UpwardForce: 3
+<<<<<<< HEAD
   soundManager: {fileID: 6548879495622137503}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!114 &1248530101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42023,7 +42057,6 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1307738730}
   ammoDisplay: {fileID: 1145595622}
-  soundManager: {fileID: 6548879495622137503}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -42298,7 +42331,10 @@ MonoBehaviour:
   equipped: 0
   ForwardForce: 0
   UpwardForce: 0
+<<<<<<< HEAD
   soundManager: {fileID: 1297423027}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!114 &1297423021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42317,7 +42353,6 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   muzzle: {fileID: 851521544}
   ammoDisplay: {fileID: 1145595622}
-  soundManager: {fileID: 1297423027}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -42362,6 +42397,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+<<<<<<< HEAD
 --- !u!82 &1297423026
 AudioSource:
   m_ObjectHideFlags: 0
@@ -42665,6 +42701,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!1001 &1302910633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52994,7 +53032,10 @@ MonoBehaviour:
   equipped: 0
   ForwardForce: 0
   UpwardForce: 0
+<<<<<<< HEAD
   soundManager: {fileID: 1390214533}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!114 &1390214522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53013,7 +53054,6 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1417859755}
   ammoDisplay: {fileID: 1145595622}
-  soundManager: {fileID: 0}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -63134,7 +63174,6 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1762457415}
   ammoDisplay: {fileID: 1145595622}
-  soundManager: {fileID: 1448225608}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -63177,7 +63216,10 @@ MonoBehaviour:
   equipped: 0
   ForwardForce: 0
   UpwardForce: 0
+<<<<<<< HEAD
   soundManager: {fileID: 1448225608}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!65 &1448225605
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -63207,6 +63249,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+<<<<<<< HEAD
 --- !u!82 &1448225607
 AudioSource:
   m_ObjectHideFlags: 0
@@ -63510,6 +63553,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!4 &1499673205 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 90d8e09703679534295bd2cacb73d6de, type: 3}
@@ -68682,15 +68727,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 1fc6205e9672b6648a3b71f17597b881, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.708
+      value: 80.325
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 1fc6205e9672b6648a3b71f17597b881, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.317
+      value: -8.173
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 1fc6205e9672b6648a3b71f17597b881, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.614
+      value: -181.467
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 1fc6205e9672b6648a3b71f17597b881, type: 3}
       propertyPath: m_LocalRotation.w
@@ -68759,7 +68804,10 @@ MonoBehaviour:
   equipped: 0
   ForwardForce: 0
   UpwardForce: 0
+<<<<<<< HEAD
   soundManager: {fileID: 1599695842}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!114 &1599695838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68778,7 +68826,6 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   muzzle: {fileID: 2099739977}
   ammoDisplay: {fileID: 1145595622}
-  soundManager: {fileID: 1599695842}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -68823,6 +68870,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+<<<<<<< HEAD
 --- !u!82 &1599695841
 AudioSource:
   m_ObjectHideFlags: 0
@@ -69126,6 +69174,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!1 &1608664800
 GameObject:
   m_ObjectHideFlags: 0
@@ -79590,7 +79640,6 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1446778159}
   ammoDisplay: {fileID: 1145595622}
-  soundManager: {fileID: 1859604932}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -79662,6 +79711,7 @@ MonoBehaviour:
   equipped: 0
   ForwardForce: 0
   UpwardForce: 0
+<<<<<<< HEAD
   soundManager: {fileID: 1859604932}
 --- !u!82 &1859604931
 AudioSource:
@@ -79966,6 +80016,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!1001 &1871236553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80667,7 +80719,6 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   muzzle: {fileID: 930681040}
   ammoDisplay: {fileID: 1145595622}
-  soundManager: {fileID: 6548879495372030163}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -80734,7 +80785,6 @@ MonoBehaviour:
   equipped: 1
   ForwardForce: 3
   UpwardForce: 3
-  soundManager: {fileID: 6548879495372030163}
 --- !u!1001 &2045397919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86153,7 +86203,10 @@ MonoBehaviour:
   equipped: 0
   ForwardForce: 0
   UpwardForce: 0
+<<<<<<< HEAD
   soundManager: {fileID: 2128063716}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!114 &2128063710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86172,7 +86225,6 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   muzzle: {fileID: 1370220641}
   ammoDisplay: {fileID: 1145595622}
-  soundManager: {fileID: 2128063716}
   gunName: 
   ammoCount: 0
   damage: 0
@@ -86217,6 +86269,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+<<<<<<< HEAD
 --- !u!82 &2128063715
 AudioSource:
   m_ObjectHideFlags: 0
@@ -86520,6 +86573,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!4 &2137306317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 9ae7f9f9eacff4142b21eb85ae606fdc, type: 3}
@@ -89468,10 +89523,13 @@ GameObject:
   - component: {fileID: 2037635303}
   - component: {fileID: 2037635301}
   - component: {fileID: 2037635305}
+<<<<<<< HEAD
   - component: {fileID: 6548879495372030162}
   - component: {fileID: 6548879495372030163}
   - component: {fileID: 6548879495372030164}
   - component: {fileID: 6548879495372030165}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
   m_Layer: 0
   m_Name: RevolverCommon
   m_TagString: Untagged
@@ -89492,10 +89550,13 @@ GameObject:
   - component: {fileID: 1248530102}
   - component: {fileID: 1248530100}
   - component: {fileID: 1248530101}
+<<<<<<< HEAD
   - component: {fileID: 6548879495622137502}
   - component: {fileID: 6548879495622137503}
   - component: {fileID: 6548879495622137505}
   - component: {fileID: 6548879495622137504}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
   m_Layer: 0
   m_Name: 'RevolverCommon '
   m_TagString: Untagged
@@ -89516,10 +89577,13 @@ GameObject:
   - component: {fileID: 931892803}
   - component: {fileID: 931892801}
   - component: {fileID: 931892802}
+<<<<<<< HEAD
   - component: {fileID: 6548879496211404303}
   - component: {fileID: 6548879496211404304}
   - component: {fileID: 6548879496211404306}
   - component: {fileID: 6548879496211404305}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
   m_Layer: 0
   m_Name: RevolverRare
   m_TagString: Untagged
@@ -89540,10 +89604,13 @@ GameObject:
   - component: {fileID: 860945186}
   - component: {fileID: 860945184}
   - component: {fileID: 860945185}
+<<<<<<< HEAD
   - component: {fileID: 6548879496275977002}
   - component: {fileID: 6548879496275977003}
   - component: {fileID: 6548879496275977005}
   - component: {fileID: 6548879496275977004}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
   m_Layer: 0
   m_Name: RevolverEpic
   m_TagString: Untagged
@@ -89564,10 +89631,13 @@ GameObject:
   - component: {fileID: 716065982}
   - component: {fileID: 716065980}
   - component: {fileID: 716065981}
+<<<<<<< HEAD
   - component: {fileID: 6548879496162890886}
   - component: {fileID: 6548879496162890887}
   - component: {fileID: 6548879496162890889}
   - component: {fileID: 6548879496162890888}
+=======
+>>>>>>> parent of b7af758 (sound effects added)
   m_Layer: 0
   m_Name: RevolverUncommon
   m_TagString: Untagged
@@ -89603,6 +89673,7 @@ Transform:
   m_Father: {fileID: 869623916}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!82 &6548879495372030162
 AudioSource:
   m_ObjectHideFlags: 0
@@ -89906,6 +89977,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!4 &6548879495622137501
 Transform:
   m_ObjectHideFlags: 0
@@ -89934,6 +90007,7 @@ Transform:
   m_Father: {fileID: 863840165}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!82 &6548879495622137502
 AudioSource:
   m_ObjectHideFlags: 0
@@ -90237,6 +90311,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!4 &6548879496162890885
 Transform:
   m_ObjectHideFlags: 0
@@ -90265,6 +90341,7 @@ Transform:
   m_Father: {fileID: 863840165}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!82 &6548879496162890886
 AudioSource:
   m_ObjectHideFlags: 0
@@ -90568,6 +90645,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!4 &6548879496211404302
 Transform:
   m_ObjectHideFlags: 0
@@ -90596,6 +90675,7 @@ Transform:
   m_Father: {fileID: 863840165}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!82 &6548879496211404303
 AudioSource:
   m_ObjectHideFlags: 0
@@ -90899,6 +90979,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!4 &6548879496275977001
 Transform:
   m_ObjectHideFlags: 0
@@ -90927,6 +91009,7 @@ Transform:
   m_Father: {fileID: 863840165}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!82 &6548879496275977002
 AudioSource:
   m_ObjectHideFlags: 0
@@ -91230,6 +91313,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> parent of b7af758 (sound effects added)
 --- !u!4 &6610774337307585727
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 # 2022_S2_-50-_PermaGreed
+<<<<<<< HEAD
 
 Assets used:
 
@@ -18,3 +19,5 @@ https://assetstore.unity.com/packages/audio/sound-fx/ui-mechanical-free-sample-p
 Sounds used:
 UI_Mechanical_Error_01_Raw
 UI_Mechanical_Select_01_FX
+=======
+>>>>>>> parent of b7af758 (sound effects added)

@@ -21,9 +21,6 @@ public class DefaultGun : MonoBehaviour
 
     public TextMeshProUGUI ammoDisplay;
 
-    //The gun sound manager
-    public GunAudio soundManager; 
-
     //These values are representative of the values found in the gun scriptableObjects, as well as some bools.
     public string gunName;
     public int ammoCount;
@@ -142,8 +139,7 @@ public class DefaultGun : MonoBehaviour
                 //Plays the muzzle particle effect for its appropriate length of time.
                 muzzle.Play();
 
-                //Plays the selected firing sound of the gun.
-                soundManager.playFire();
+                GetComponent<AudioSource>().Play();
 
                 Debug.Log(currentGun.tempAmmo);
 
