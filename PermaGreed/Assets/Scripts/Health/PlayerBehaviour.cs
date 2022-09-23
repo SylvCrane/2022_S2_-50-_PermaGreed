@@ -32,7 +32,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    private void PlayerTakeDmg(int dmg)
+    public void PlayerTakeDmg(int dmg)
     {
         GameManager.gameManager._playerHealth.DmgUnit(dmg);
         _healthbar.SetHealth(GameManager.gameManager._playerHealth.Health);
