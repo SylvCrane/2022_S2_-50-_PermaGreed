@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerBehaviour : MonoBehaviour
 {
     public deathOperations death;
+    // I used this to make the variable private, which also shows up in the Editor
     [SerializeField] Healthbar _healthbar;
 
     void Start()
@@ -13,6 +14,7 @@ public class PlayerBehaviour : MonoBehaviour
         
     }
 
+    // This is to test health being damaged by pressing the 2 keywords
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Tab))
@@ -25,6 +27,8 @@ public class PlayerBehaviour : MonoBehaviour
             PlayerHeal(10);
             Debug.Log(GameManager.gameManager._playerHealth.Health);
         }
+
+        // When player health goes down to 0 the screen will be redirected to the main menu to simulate death for the time being
         if (GameManager.gameManager._playerHealth.GetHealth() <= 0)
         {
             death.whenPlayerDies();
@@ -32,16 +36,21 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
+    // Pass in player being damaged
     public void PlayerTakeDmg(int dmg)
     {
         GameManager.gameManager._playerHealth.DmgUnit(dmg);
         _healthbar.SetHealth(GameManager.gameManager._playerHealth.Health);
+
+
+        // This starts the damage indicator when player gets hit
         if (!DI_System.CheckIfObjectInSight(this.transform))
         {
             DI_System.CreateIndicator(this.transform);
         }
     }
 
+    // Pass in how much healing player is going to take
     private void PlayerHeal(int healing)
     {
         GameManager.gameManager._playerHealth.HealUnit(healing);
