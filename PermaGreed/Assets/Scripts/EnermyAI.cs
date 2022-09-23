@@ -9,6 +9,7 @@ public class EnermyAI : MonoBehaviour
     [SerializeField] Transform target; //the player
     [SerializeField] float attackRange = 5f; //the range which enemy can attack (
     [SerializeField] int attackDamage = 5; //enemy dmg per hit
+    [SerializeField] float timeToAttack = 4f;
     bool canAttack; //boolean check if the enemy can attack to avoid enemy from lasor beaming player
 
     public PlayerBehaviour playerBehavior; //to store playerBehavior so player can take dmg
@@ -24,8 +25,19 @@ public class EnermyAI : MonoBehaviour
         attackRange = navMeshAgent.stoppingDistance; //setting attack range to the navMeshAgent stopping distance
         canAttack = true; //allow enemy to attack
 
-        //setSpawnLocation((target.position.x + Random.Range(-50, 50)) , 1.5f, (target.position.z + Random.Range(-50, 50)));
-        setSpawnLocation(-150, 1.5f, 210);
+        while (true)
+        {
+            float x = target.position.x + Random.Range(-10, 10);
+            float z = target.position.z + Random.Range(-10, 10);
+            float y = 2f;
+            float hypo = Mathf.Sqrt((Mathf.Pow(2, x)) + (Mathf.Pow(2, z)));
+
+            if (Physics.Raycast(transform.position, new Vector3(x, y, z), hypo) != true)
+            {
+                setSpawnLocation((x-2), y, (z-2));
+                break;
+            }
+        }        
     }
 
     // Update is called once per frame
@@ -53,28 +65,28 @@ public class EnermyAI : MonoBehaviour
         }
     }
 
-    private void ChaseTarget()
+    private void ChaseTarget() //set the player as detination for navMeshAgent, nMA will just handle the running + pathing of the enemy
     {
-        navMeshAgent.SetDestination(target.position); //
+        navMeshAgent.SetDestination(target.position); 
     }
 
-    private void AttackTarget()
+    private void AttackTarget() //attacking the player script, run wait timer after hitting player
     {
         if (canAttack == true)
         {
             playerBehavior.PlayerTakeDmg(attackDamage);
             canAttack = false;
-            StartCoroutine(attackWait());
+            StartCoroutine(attackWait(timeToAttack));
         }  
     }
 
-    private IEnumerator attackWait()
+    private IEnumerator attackWait(float timeToAttack) //wait timer before enemy can attack again
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(timeToAttack);
         canAttack = true;
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected() //displaying the range with line drawn in unity (for debugging purpose n visual representation, no actual purpose in game)
     {
         Gizmos.color = Color.red; //new Color(1, 1, 0, 0.75F);
         Gizmos.DrawWireSphere(transform.position, attackRange);

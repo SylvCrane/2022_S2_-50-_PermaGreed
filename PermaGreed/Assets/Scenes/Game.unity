@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4403623, g: 0.4889369, b: 0.5690995, a: 1}
+  m_IndirectSpecularColor: {r: 0.44036263, g: 0.48893732, b: 0.56910014, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -110,14 +110,14 @@ NavMeshSettings:
     agentHeight: 2
     agentSlope: 45
     agentClimb: 1
-    ledgeDropHeight: 0
+    ledgeDropHeight: 2
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    accuratePlacement: 1
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
@@ -991,6 +991,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 90d8e09703679534295bd2cacb73d6de, type: 3}
   m_PrefabInstance: {fileID: 783473671}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &140046916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 140046918}
+  - component: {fileID: 140046917}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &140046917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140046916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3dc4d43e3b2a624585c40c118c61b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meeleEnemy: {fileID: 7037750013316145565, guid: 0a0e845693dc79a48bbd601bf55a0f6f, type: 3}
+  rangeEnemy: {fileID: 4482899860507395582, guid: e1871341fcb2abe43b0bf53261d20c88, type: 3}
+--- !u!4 &140046918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140046916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -128.13232, y: 29.177818, z: 204.51225}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &148039329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1914,7 +1960,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &432564425
 Transform:
@@ -7475,7 +7521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &526961605
 Transform:
   m_ObjectHideFlags: 0
@@ -77380,7 +77426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &1913059135
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -77495,6 +77541,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1324003607}
+  attackRange: 5
+  attackDamage: 5
+  timeToAttack: 4
+  playerBehavior: {fileID: 0}
 --- !u!114 &1913059141
 MonoBehaviour:
   m_ObjectHideFlags: 0
