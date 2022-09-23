@@ -8,8 +8,7 @@ public class PlayerBehaviour : MonoBehaviour
     public deathOperations death;
     // I used this to make the variable private, which also shows up in the Editor
     [SerializeField] Healthbar _healthbar;
-    [SerializeField] private AudioSource damageSoundEffect;
-    [SerializeField] private AudioSource healSoundEffect;
+    
 
     void Start()
     {
@@ -44,7 +43,7 @@ public class PlayerBehaviour : MonoBehaviour
         GameManager.gameManager._playerHealth.DmgUnit(dmg);
         _healthbar.SetHealth(GameManager.gameManager._playerHealth.Health);
         //To be able to add the sound effect when player gets hit
-        damageSoundEffect.Play();
+       
         // This starts the damage indicator when player gets hit
         if (!DI_System.CheckIfObjectInSight(this.transform))
         {
@@ -58,7 +57,7 @@ public class PlayerBehaviour : MonoBehaviour
         GameManager.gameManager._playerHealth.HealUnit(healing);
         _healthbar.SetHealth(GameManager.gameManager._playerHealth.Health);
         //To be able to add the sound effect when player gets healed
-        healSoundEffect.Play();
+        
     }
 }
 
