@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GunColour : MonoBehaviour
 {
-
     Renderer modelRenderer;
 
     void Start()
@@ -13,14 +12,13 @@ public class GunColour : MonoBehaviour
 
         //Make sure to enable keywords
         //modelRenderer.material.EnableKeyword("Main_metal");
+        Color newValue;
 
-        Color cyan = new Color(0f, 1f, 1f, 1f);
-        modelRenderer.material.SetColor("_Color", cyan);
+        if (GameData.gunColour != null)
+        {
+            newValue = GameData.gunColour;
+            modelRenderer.material.SetColor("_Color", newValue);
+        }
     }
 
-    // Update is called once per frame
-    void Update() //This will be used once the RGB colour is implemeneted. (Through the menu or inventory etc.)
-    {
-        //Insert Parameters
-    }
 }
