@@ -10,8 +10,6 @@ public class GunColour : MonoBehaviour
     {
         modelRenderer = GetComponent<Renderer>();
 
-        //Make sure to enable keywords
-        //modelRenderer.material.EnableKeyword("Main_metal");
         Color newValue;
 
         if (GameData.gunColour != null)
