@@ -52,8 +52,9 @@ public class GunManager : MonoBehaviour
                         newGunName = newGunNamePartial + GameData.gunRarity;
 
                         replacementGun = guns.transform.Find(newGunName).gameObject;
-                        replacementGun.transform.parent = gunContainer.transform;
                         replacementGun.GetComponent<CollectScript>().collect();
+                        //replacementGun.transform.parent = gunContainer.transform;
+                        
                         replacementGun.SetActive(true);
                         GameObject.Destroy(gunToReplace);
 

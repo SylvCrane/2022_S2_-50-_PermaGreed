@@ -10,48 +10,46 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject meeleEnemy;
     [SerializeField] GameObject rangeEnemy;
 
-    private float spawnTimer = 5f;
+    bool canSpawn;
+    private float spawnTimer = 2f;
 
     // Start is called before the first frame update
     void Start()
     {
-        numberOfEnemy = 0;
-        maxEnemy = 1;
-        spawn(1);
-        spawn(0);
+        //implement max number of enemy later
+        canSpawn = true; //the state of enemy spawn, can it spawn ?
     }
 
     // Update is called once per frame
     void Update()
     {
-        spawn(1);
-        spawn(0);
-        //StartCoroutine(spawnEnemy(interval, enemy));
+        spawn();
     }
 
-    private void spawn(int enemyType)
+    private void spawn()
     {
-        if (enemyType == 1)
+        int enemyType = Random.Range(0, 2); //randomly decide if an enemy is range or melee
+
+        if (canSpawn == true)
         {
-            GameObject newEnemy = Instantiate(meeleEnemy); 
-        }
+            if (enemyType == 1)
+            {
+                GameObject newEnemy = Instantiate(meeleEnemy); 
+            }
 
-        if(enemyType == 0)
-        {
-            GameObject newEnemy = Instantiate(rangeEnemy);
-        }
-        
+            if(enemyType == 0)
+            {
+                GameObject newEnemy = Instantiate(rangeEnemy);
+            }
+
+            canSpawn = false;
+            StartCoroutine(spawnEnemyCoolDown(5f)); 
+        }  
     }
 
-    private IEnumerator spawnEnemy(float interval, GameObject enemy)
+    private IEnumerator spawnEnemyCoolDown(float interval) //spawn enemy cooldown
     {
-        yield return new WaitForSeconds(10f);
-        GameObject newEnemy = Instantiate(enemy, new Vector3(877, 3, -346), Quaternion.identity);
-
-    }
-
-    private bool checkTimer()
-    {
-        return false;
+        yield return new WaitForSeconds(interval);
+        canSpawn = true;
     }
 }
