@@ -34,7 +34,7 @@ public class RGBValue : MonoBehaviour
         //Debug.Log("Blue Value: " + blueValue);
 
         /* Creating a color based on the user input */
-        Color GunNewColour = new Color(redValue, greenValue, blueValue); //e.g. Color(0.23,)
+        Color GunNewColour = new Color(redValue, greenValue, blueValue, 1f); //e.g. Color(0.23,)
 
         /* Now Assigning the value to the GameData */
         GameData.gunColour = GunNewColour;
