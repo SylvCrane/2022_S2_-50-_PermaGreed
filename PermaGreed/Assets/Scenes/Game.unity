@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44036263, g: 0.48893732, b: 0.56910014, a: 1}
+  m_IndirectSpecularColor: {r: 0.4403623, g: 0.4889369, b: 0.5690995, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19223,7 +19223,7 @@ GameObject:
   - component: {fileID: 863840165}
   m_Layer: 0
   m_Name: Guns
-  m_TagString: Untagged
+  m_TagString: Guns
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77559,6 +77559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   balance: {fileID: 1324003614}
+  gun: {fileID: 0}
 --- !u!1001 &1931660709
 PrefabInstance:
   m_ObjectHideFlags: 0
