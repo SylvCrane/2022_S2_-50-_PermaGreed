@@ -14,7 +14,6 @@ public class GameData : MonoBehaviour
     public static float damage, range, reloadDuration, fireRate, tempAmmo;
     public static GunStats.Rarity gunRarity;
     public static int currency;
-    public static Color gunColour;
 
 
 
