@@ -30,3 +30,8 @@ https://assetstore.unity.com/packages/3d/props/guns/revolver-gun-low-poly-221659
 - Standard Assets Folder) Standard Assets (for Unity 2018.4) by Unity Technologies
 https://assetstore.unity.com/packages/essentials/asset-packs/standard-assets-for-unity-2018-4-32351
 
+- Main Menu Sound Effects
+https://mixkit.co/free-sound-effects/
+
+- Background Music
+https://www.bensound.com/royalty-free-music?filters[]=Video%20Game&category=Theme&type=free&sort=relevance
