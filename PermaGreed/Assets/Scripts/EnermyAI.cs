@@ -62,6 +62,7 @@ public class EnermyAI : MonoBehaviour
         if (distanceToTarget <= navMeshAgent.stoppingDistance)
         {
             AttackTarget(); 
+
         }
     }
 
@@ -77,6 +78,7 @@ public class EnermyAI : MonoBehaviour
             playerBehavior.PlayerTakeDmg(attackDamage);
             canAttack = false;
             StartCoroutine(attackWait(timeToAttack));
+            
         }  
     }
 
