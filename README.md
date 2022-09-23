@@ -13,3 +13,8 @@ https://assetstore.unity.com/packages/audio/sound-fx/weapons/sci-fi-gun-sounds-p
 Sounds used:
 Shot 3
 
+UI - Mechanical(Free Sample Pack)
+https://assetstore.unity.com/packages/audio/sound-fx/ui-mechanical-free-sample-pack-148704
+Sounds used:
+UI_Mechanical_Error_01_Raw
+UI_Mechanical_Select_01_FX

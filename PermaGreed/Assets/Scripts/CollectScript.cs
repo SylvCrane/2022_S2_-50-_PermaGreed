@@ -95,6 +95,9 @@ public class CollectScript : MonoBehaviour
         rb.isKinematic = true;
         co.isTrigger = true;
         gun.enabled = true;
+
+        //plays the pickup sound of the gun
+        soundManager.playPickup();
     }
 
     private void drop()
@@ -118,5 +121,7 @@ public class CollectScript : MonoBehaviour
 
         //the gun is disabled
         gun.enabled = false;
+
+        soundManager.playDrop();
     }
 }
