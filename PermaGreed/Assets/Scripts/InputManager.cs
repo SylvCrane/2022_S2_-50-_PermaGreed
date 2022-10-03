@@ -38,8 +38,7 @@ public class InputManager : MonoBehaviour
         if (gunSwitch)
         {
             gunScript = gun.GetComponent<DefaultGun>();
-            onFoot.Shoot.performed += ctx => gunScript.Shoot();
-
+         
             gunSwitch = false;
         }
 

@@ -93,12 +93,12 @@ public class DefaultGun : MonoBehaviour
         currentGun.tempAmmo = tempAmmo;        
         currentGun.gunRarity = gunRarity;
 
-        rarityRectangle = gameObject.transform.GetChild(gameObject.transform.childCount - 1).gameObject;
     }
 
     void setRarityofRarityRectangle()
     {
         //Depending on the rarity of the gun, the rarityRectangle's material is set to the appropriate rarity color.
+        rarityRectangle = gameObject.transform.GetChild(gameObject.transform.childCount - 1).gameObject;
 
         if (gunRarity == GunStats.Rarity.Common)
         {
@@ -176,6 +176,8 @@ public class DefaultGun : MonoBehaviour
         if ((transform.parent != null) && (this.gameObject.GetComponent<CollectScript>().equipped) && (updateCurrentOnce))
         {
             setToCurrent();
+
+            this.gameObject.transform.parent.GetComponent<GunManager>().resetInputManager();
 
             //Set to false so it is not called again unless the player once again switches their gun.
             updateCurrentOnce = false;
