@@ -16,10 +16,10 @@ public class DamageIndicator : MonoBehaviour
     {
         get
         {
-            if(canvasGroup == null)
+            if (canvasGroup == null)
             {
                 canvasGroup = GetComponent<CanvasGroup>();
-                if(canvasGroup == null)
+                if (canvasGroup == null)
                 {
                     canvasGroup = gameObject.AddComponent<CanvasGroup>();
                 }
@@ -60,7 +60,7 @@ public class DamageIndicator : MonoBehaviour
     private Vector3 tPos = Vector3.zero;
 
     // Register to data into the damage indicator class
-   public void Register(Transform target, Transform player, Action unRegister)
+    public void Register(Transform target, Transform player, Action unRegister)
     {
         this.Target = Target;
         this.player = player;
@@ -80,7 +80,7 @@ public class DamageIndicator : MonoBehaviour
     //Starts the timer 
     private void StartTimer()
     {
-        if (IE_Countdown != null) { StopCoroutine(IE_Countdown);  }
+        if (IE_Countdown != null) { StopCoroutine(IE_Countdown); }
         IE_Countdown = Countdown();
         StartCoroutine(IE_Countdown);
     }
@@ -88,7 +88,7 @@ public class DamageIndicator : MonoBehaviour
     // Indicator rotates to target (Underdevelopment)
     IEnumerator RotateToTheTarget()
     {
-        while(enabled)
+        while (enabled)
         {
             if (Target)
             {
@@ -132,3 +132,4 @@ public class DamageIndicator : MonoBehaviour
         Destroy(gameObject);
     }
 }
+
