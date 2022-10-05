@@ -8,7 +8,9 @@ public class PlayerBehaviour : MonoBehaviour
     public deathOperations death;
     // I used this to make the variable private, which also shows up in the Editor
     [SerializeField] Healthbar _healthbar;
-    
+    [SerializeField] private AudioSource damageSound;
+    [SerializeField] private AudioSource healSound;
+    [SerializeField] private AudioSource deathSound;
 
     void Start()
     {
@@ -32,6 +34,7 @@ public class PlayerBehaviour : MonoBehaviour
         // When player health goes down to 0 the screen will be redirected to the main menu to simulate death for the time being
         if (GameManager.gameManager._playerHealth.GetHealth() <= 0)
         {
+            deathSound.Play();
             death.whenPlayerDies();
             SceneManager.LoadScene("MainMenu");
         }
@@ -43,7 +46,9 @@ public class PlayerBehaviour : MonoBehaviour
         GameManager.gameManager._playerHealth.DmgUnit(dmg);
         _healthbar.SetHealth(GameManager.gameManager._playerHealth.Health);
         //To be able to add the sound effect when player gets hit
-       
+        damageSound.Play();
+
+
         // This starts the damage indicator when player gets hit
         if (!DI_System.CheckIfObjectInSight(this.transform))
         {
@@ -57,7 +62,8 @@ public class PlayerBehaviour : MonoBehaviour
         GameManager.gameManager._playerHealth.HealUnit(healing);
         _healthbar.SetHealth(GameManager.gameManager._playerHealth.Health);
         //To be able to add the sound effect when player gets healed
-        
+        healSound.Play();
+
     }
 }
 
