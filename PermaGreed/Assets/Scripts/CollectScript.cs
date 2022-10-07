@@ -21,7 +21,9 @@ public class CollectScript : MonoBehaviour
     public static bool full; //needed if to tell if any gun is equipped
 
     //forces, needed to allow for weapons to drop and not float on ground
-    public float ForwardForce, UpwardForce; 
+    public float ForwardForce, UpwardForce;
+
+    public GunAudio soundManager;
 
     private void Start()
     {
@@ -87,7 +89,7 @@ public class CollectScript : MonoBehaviour
         co.isTrigger = true;
         gun.enabled = true;
 
-        
+        soundManager.playPickup();
     }
 
     private void drop()
@@ -107,5 +109,7 @@ public class CollectScript : MonoBehaviour
         rb.AddForce(cam.up * UpwardForce, ForceMode.Impulse);
 
         gun.enabled = false;
+
+        soundManager.playDrop();
     }
 }

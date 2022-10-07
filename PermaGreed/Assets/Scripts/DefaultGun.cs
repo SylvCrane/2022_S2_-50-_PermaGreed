@@ -52,6 +52,9 @@ public class DefaultGun : MonoBehaviour
     //A simple method that checks if the gun can be shot depending on the gun's fireRate.
     private bool gunAvailable() => !currentGun.reload && TimeSinceFire > 1f / (currentGun.fireRate / 60f);
 
+    //Sound manager to play the firing sound
+    public GunAudio soundManager;
+
     public void Start()
     {
 
@@ -138,6 +141,9 @@ public class DefaultGun : MonoBehaviour
 
                 //Plays the muzzle particle effect for its appropriate length of time.
                 muzzle.Play();
+
+                //Plays the shooting sound effect for the gun
+                soundManager.playFire();
 
                 Debug.Log(currentGun.tempAmmo);
 
