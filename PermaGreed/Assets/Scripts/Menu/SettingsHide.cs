@@ -27,7 +27,24 @@ public class SettingsHide : MonoBehaviour
 
     public void AudioTrue()
     {
-        
+        GraphicButton.interactable = true;
+        AudioButton.interactable = false;
+        ControlsButton.interactable = true;
+
+        AudioBar.SetActive(true);
+        ControlsBar.SetActive(false);
+        GraphicsBar.SetActive(false);
+    }
+
+    public void ControlsTrue()
+    {
+        GraphicButton.interactable = true;
+        AudioButton.interactable = true;
+        ControlsButton.interactable = false;
+
+        AudioBar.SetActive(false);
+        GraphicsBar.SetActive(false);
+        ControlsBar.SetActive(true);
     }
 
 
