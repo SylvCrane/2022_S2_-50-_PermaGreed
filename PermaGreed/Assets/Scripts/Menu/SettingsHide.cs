@@ -14,6 +14,10 @@ public class SettingsHide : MonoBehaviour
     public Button AudioButton;
     public Button ControlsButton;
 
+     void Start()
+    {
+        GraphicsTrue();
+    }
     public void GraphicsTrue()
     {
         GraphicButton.interactable = false;

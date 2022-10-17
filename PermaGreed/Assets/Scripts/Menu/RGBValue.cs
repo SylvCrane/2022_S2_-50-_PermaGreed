@@ -1,33 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; //YOU NEED THIS FOR UI/MENU
 using TMPro; //YOU NEED THIS FOR TEXTFIELDS (this is not legacy textfields)
 
 public class RGBValue : MonoBehaviour
 {
-    //public InputField redBox;
-    public GameObject redBox;
-    public GameObject greenBox;
-    public GameObject blueBox;
+    /* RGBValues - This is used in the RGB within the Canvas for gun customization. */
+    public Slider redBox;
+    public Slider greenBox;
+    public Slider blueBox;
+
+    public TMP_InputField redInput;
+    public TMP_InputField greenInput;
+    public TMP_InputField blueInput;
 
     public void changeRGBvalue()
     {
-        /* Grabbing String values from the input fields */
-        string redText = redBox.GetComponent<TMP_InputField>().text;
-        string greenText = greenBox.GetComponent<TMP_InputField>().text;
-        string blueText = blueBox.GetComponent<TMP_InputField>().text;
+        /* Grabbing Float from the Slider */
+        float redValue = redBox.value;
+        float greenValue = greenBox.value;
+        float blueValue = blueBox.value;
 
-        /* Converting String to integers first */
-        int redInt = int.Parse(redText);
-        int greenInt = int.Parse(greenText);
-        int blueInt = int.Parse(blueText);
-
-        /* InputField conversion to Integer */
-        //Forgot to mention, 0.001 is because Unity RGB is too dumb to acknowledge whole numbers.
-        float redValue = redInt * 0.001f;
-        float greenValue = greenInt * 0.001f;
-        float blueValue = blueInt * 0.001f;
+        /* Float Calculation */
+        redValue = redValue / 255f;
+        greenValue = greenValue / 255f;
+        blueValue = blueValue / 255f;
 
         //Debug.Log("Red Value: " + redValue);
         //Debug.Log("Green Value: " + greenValue);
@@ -39,4 +35,29 @@ public class RGBValue : MonoBehaviour
         /* Now Assigning the value to the GameData */
         GameData.gunColour = GunNewColour;
     }
+
+    void Start()
+    {
+        //So that the red slider connects with the input fields.
+        redBox.onValueChanged.AddListener(InputSliderMergeRed);
+        greenBox.onValueChanged.AddListener(InputSliderMergeBlu);
+        blueBox.onValueChanged.AddListener(InputSliderMergeGrn);
+    }
+
+    public void InputSliderMergeRed(float rgbVar)
+    {
+        redInput.text = rgbVar + "";
+    }
+
+    public void InputSliderMergeBlu(float rgbVar)
+    {
+        greenInput.text = rgbVar + "";
+    }
+
+    public void InputSliderMergeGrn(float rgbVar)
+    {
+        blueInput.text = rgbVar + "";
+    }
+
+
 }
