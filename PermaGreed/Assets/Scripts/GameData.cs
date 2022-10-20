@@ -15,6 +15,7 @@ public class GameData : MonoBehaviour
     public static GunStats.Rarity gunRarity;
     public static int currency;
     public static Color gunColour;
+    public static float GameSenstivity;
 
 
 

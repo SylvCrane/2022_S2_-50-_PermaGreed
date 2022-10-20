@@ -7,7 +7,6 @@ public class AudioOptions : MonoBehaviour
     [SerializeField] AudioMixer mixer;
     [SerializeField] Slider musicOption;
     [SerializeField] Slider soundOption;
-    
 
     const string MUSIC_MIXER = "MusicMixer";
     const string SOUND_MIXER = "SoundMixer";
