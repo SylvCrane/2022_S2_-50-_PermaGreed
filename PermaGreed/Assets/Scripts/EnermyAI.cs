@@ -32,9 +32,13 @@ public class EnermyAI : MonoBehaviour
             float y = 2f;
             float hypo = Mathf.Sqrt((Mathf.Pow(2, x)) + (Mathf.Pow(2, z)));
 
-            if (Physics.Raycast(transform.position, new Vector3(x, y, z), hypo) != true)
+            if (Physics.Raycast(transform.position, new Vector3(x, y, z), hypo) != true 
+                && Physics.Raycast(transform.position, new Vector3((x + 2), y, (z + 2)), hypo) != true  //conditions to check around the spawn point (top left)
+                && Physics.Raycast(transform.position, new Vector3((x + 2), y, (z - 2)), hypo) != true  //conditions to check around the spawn point (top right)
+                && Physics.Raycast(transform.position, new Vector3((x - 2), y, (z - 2)), hypo) != true  //conditions to check around the spawn point (bottome left)
+                && Physics.Raycast(transform.position, new Vector3((x - 2), y, (z + 2)), hypo) != true) //conditions to check around the spawn point (bottome right)
             {
-                setSpawnLocation((x-2), y, (z-2));
+                setSpawnLocation(x, y, z);
                 break;
             }
         }        
