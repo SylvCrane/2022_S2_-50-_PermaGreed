@@ -41,7 +41,7 @@ public class DI_System : MonoBehaviour
             return;
         }
         DamageIndicator newIndicator = Instantiate(indicatorPrefab, holder);
-        newIndicator.Register(target, player, new Action(() => { Indicators.Remove(target); }));
+        newIndicator.Register(target, player, new Action( () => { Indicators.Remove(target); } ));
 
         Indicators.Add(target, newIndicator);
     }

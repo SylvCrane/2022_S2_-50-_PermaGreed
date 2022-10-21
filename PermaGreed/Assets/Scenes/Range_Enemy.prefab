@@ -252,4 +252,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   balance: {fileID: 0}
+  damageText: {fileID: 2216109667331649800, guid: 6553cb07c1a7eec46bdb577ce0682552, type: 3}
   gun: {fileID: 0}

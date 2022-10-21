@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
 
     public float health = 30f;
     public PlayerBalance balance;
+    public GameObject damageText;
     public GameObject gun;
 
     void Start()
@@ -19,6 +20,8 @@ public class Enemy : MonoBehaviour
     public void healthDown(float amount)
     {
         health -= amount;
+        EnemyDmgNumber indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<EnemyDmgNumber>();
+        indicator.SetDamageText(amount);
 
         if (health <= 0f)
         {
