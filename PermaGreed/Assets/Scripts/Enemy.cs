@@ -10,11 +10,13 @@ public class Enemy : MonoBehaviour
     public PlayerBalance balance;
     public GameObject damageText;
     public GameObject gun;
+    public GameObject healthPack;
 
     void Start()
     {
         balance = GameObject.FindWithTag("Player").GetComponent<PlayerBalance>(); //getting PlayerBalance script reference to add money
         gun = GameObject.FindWithTag("Guns");
+        healthPack = GameObject.FindWithTag("HealthPack");
     }
 
     public void healthDown(float amount)
@@ -26,6 +28,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0f)
         {
             gunDrop();
+            healthPackDrop();
             Destroy(gameObject);
             balance.AddCount();
         }
@@ -41,6 +44,18 @@ public class Enemy : MonoBehaviour
             newGunDrop.SetActive(true);
             newGunDrop.transform.position = new Vector3(gameObject.transform.position.x, 2f, gameObject.transform.position.z);
         }  
+    }
+    public void healthPackDrop()
+    {
+        int doHealthPackDrop = Random.Range(0, 101);
+
+        if (doHealthPackDrop >= 10)
+        {
+            GameObject newHealthPackDrop = Instantiate(healthPack.transform.GetChild(0).gameObject);
+            newHealthPackDrop.SetActive(true);
+            newHealthPackDrop.transform.position = new Vector3(gameObject.transform.position.x + 1f, 2f, gameObject.transform.position.z);
+            Destroy(newHealthPackDrop, 5f);
+        }
     }
 
     public int gunRarity() //this will be subjected to heavy change during iteration 2

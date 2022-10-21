@@ -8,6 +8,7 @@ public class DefaultGun : MonoBehaviour
 {
     //This is used to shoot the gun the player is currently holding. If that gun were to be switched, all of the values will be reset onto the new gun.
 
+    [SerializeField] Healthbar _healthbar;
     //The ScriptableObject for this gun
     [SerializeField] GunStats stats;
 
@@ -151,7 +152,6 @@ public class DefaultGun : MonoBehaviour
                     {
                         enemy.healthDown(currentGun.damage);
                     }
-
 
                     Debug.Log(hit.transform.name);
                 }
