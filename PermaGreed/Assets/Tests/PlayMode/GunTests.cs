@@ -12,7 +12,9 @@ public class GunTests
     {
         GameObject gun = new GameObject();
         GameObject gunParent = new GameObject();
+
         gun = Object.Instantiate(Resources.Load("RevolverCommon")) as GameObject;
+
         GameObject player = Object.Instantiate(Resources.Load("Player")) as GameObject;
 
         gun.gameObject.transform.parent = gunParent.transform;
@@ -20,6 +22,7 @@ public class GunTests
         gun.gameObject.GetComponent<DefaultGun>().tempAmmo = 6.0f;
         Debug.Log(gun.gameObject.GetComponent<DefaultGun>().tempAmmo);
         gun.SetActive(true);
+
 
         yield return new WaitForSeconds(3);
 
