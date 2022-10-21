@@ -55,18 +55,12 @@ public class DamageIndicator : MonoBehaviour
     // If damage indicator is already on the screen this will just reset the timer rather than place another one on top
     private Action unRegister = null;
 
-    // Determine the position of the target
-    private Quaternion tRot = Quaternion.identity;
-    private Vector3 tPos = Vector3.zero;
-
     // Register to data into the damage indicator class
     public void Register(Transform target, Transform player, Action unRegister)
     {
         this.Target = Target;
         this.player = player;
         this.unRegister = unRegister;
-
-        StartCoroutine(RotateToTheTarget());
         StartTimer();
     }
 
@@ -83,31 +77,6 @@ public class DamageIndicator : MonoBehaviour
         if (IE_Countdown != null) { StopCoroutine(IE_Countdown); }
         IE_Countdown = Countdown();
         StartCoroutine(IE_Countdown);
-    }
-
-    // Indicator rotates to target (Underdevelopment)
-    IEnumerator RotateToTheTarget()
-    {
-        while (enabled)
-        {
-            if (Target)
-            {
-                tPos = Target.position;
-                tRot = Target.rotation;
-            }
-            Vector3 direction = player.position - tPos;
-
-            // This is so the UI only rotates in the Z axis
-            tRot = Quaternion.LookRotation(direction);
-            tRot.z = -tRot.y;
-            tRot.x = 0;
-            tRot.y = 0;
-
-            Vector3 northDirection = new Vector3(0, 0, player.eulerAngles.y);
-            Rect.localRotation = tRot * Quaternion.Euler(northDirection);
-
-            yield return null;
-        }
     }
 
     // Timer for when indicator will be destroyed
