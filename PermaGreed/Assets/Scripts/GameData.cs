@@ -16,6 +16,7 @@ public class GameData : MonoBehaviour
     public static int currency;
     public static Color gunColour;
 
-
+    //Player class data
+    public static int classGrade;
 
 }

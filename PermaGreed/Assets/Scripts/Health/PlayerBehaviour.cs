@@ -20,6 +20,10 @@ public class PlayerBehaviour : MonoBehaviour
     // This is to test health being damaged by pressing the 2 keywords
     void Update()
     {
+        //Checks the progression of the upgrades for the player abilities
+        
+        
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             PlayerTakeDmg(20);
