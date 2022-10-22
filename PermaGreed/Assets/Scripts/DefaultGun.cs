@@ -119,9 +119,8 @@ public class DefaultGun : MonoBehaviour
                     for (int i = 0; i < 4; i++)
                     {
                         float xValue = Random.Range(-1, 2);
-                        float yValue = Random.Range(-1, 2);
 
-                        Vector3 IndividualPellet = cam.transform.forward + new Vector3(xValue, yValue, 0);
+                        Vector3 IndividualPellet = cam.transform.forward + new Vector3(xValue, 0, 0);
                         
                         if (cam != null)
                         {
@@ -197,7 +196,7 @@ public class DefaultGun : MonoBehaviour
             ammoDisplay.text = currentGun.tempAmmo.ToString();
         }
 
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && !currentGun.reload)
         {
             Shoot();
         }
@@ -218,7 +217,5 @@ public class DefaultGun : MonoBehaviour
         tempAmmo = stats.tempAmmo;
         currentGun.reload = false;
         Debug.Log("Done!");
-
-        TimeSinceFire = 0;
     }
 }

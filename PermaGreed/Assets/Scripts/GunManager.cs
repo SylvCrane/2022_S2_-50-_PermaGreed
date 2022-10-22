@@ -48,9 +48,17 @@ public class GunManager : MonoBehaviour
                     {
                         Debug.Log("You shouldn't be seeing this, you sneaky snoo...");
 
-                        string newGunNamePartial = GameData.gunName;
-                        newGunName = newGunNamePartial + GameData.gunRarity;
-
+                        //Because legendary is the default rarity for legendary guns, it needs a special name association compared to the other guns in the game.
+                        if (GameData.gunRarity == GunStats.Rarity.Legendary)
+                        {
+                            newGunName = GameData.gunName;
+                        }
+                        else
+                        {
+                            string newGunNamePartial = GameData.gunName;
+                            newGunName = newGunNamePartial + GameData.gunRarity;
+                        }
+                        
                         replacementGun = guns.transform.Find(newGunName).gameObject;
                         replacementGun.GetComponent<CollectScript>().collect();
                         //replacementGun.transform.parent = gunContainer.transform;
