@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour
 
     public UnitHealth _playerHealth = new UnitHealth(100, 100);
 
+    void Start()
+    {
+        
+    }
+
     // This deletes a duplicate GameManager
     void Awake()
     {
