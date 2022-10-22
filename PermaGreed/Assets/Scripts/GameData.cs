@@ -17,6 +17,5 @@ public class GameData : MonoBehaviour
     public static Color gunColour;
 
     //Player class data
-    public static int classGrade;
-
+    public static string plClass;
 }
