@@ -20,7 +20,7 @@ public class PlayerBehaviour : MonoBehaviour
     // This is to test health being damaged by pressing the 2 keywords
     void Update()
     {
-        //Checks the progression of the upgrades for the player abilities
+        //Checks if the player is the soldier class
         
         
 
