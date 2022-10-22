@@ -14,15 +14,12 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Start()
     {
-    
+        
     }
 
     // This is to test health being damaged by pressing the 2 keywords
     void Update()
-    {
-        //Checks if the player is the soldier class
-        
-        
+    {        
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {

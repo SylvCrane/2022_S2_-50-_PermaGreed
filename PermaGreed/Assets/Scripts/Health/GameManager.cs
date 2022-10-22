@@ -12,6 +12,14 @@ public class GameManager : MonoBehaviour
     // This deletes a duplicate GameManager
     void Awake()
     {
+        if (string.Compare(GameData.plClass, "sol") == 0)
+        {
+            double healthboost = _playerHealth._currentMaxHealth * 0.25f;
+
+            _playerHealth._currentHealth += (int)healthboost;
+            _playerHealth._currentMaxHealth += (int)healthboost;
+        }
+
         if (gameManager != null && gameManager != this)
         {
             Destroy(this);
@@ -21,5 +29,15 @@ public class GameManager : MonoBehaviour
             gameManager = this;
         }
 
+    }
+
+    void start()
+    {
+        
+    }
+
+    void Update()
+    {
+        Debug.Log(gameManager._playerHealth._currentHealth + " " + gameManager._playerHealth._currentMaxHealth);
     }
 }
