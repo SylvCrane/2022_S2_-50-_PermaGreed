@@ -19,6 +19,6 @@ MonoBehaviour:
   range: 100
   reloadDuration: 2
   hasSpread: 0
-  fireRate: 3
+  fireRate: 600
   tempAmmo: 30
   gunRarity: 4
