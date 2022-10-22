@@ -8,7 +8,6 @@ public class DefaultGun : MonoBehaviour
 {
     //This is used to shoot the gun the player is currently holding. If that gun were to be switched, all of the values will be reset onto the new gun.
 
-    [SerializeField] Healthbar _healthbar;
     //The ScriptableObject for this gun
     [SerializeField] GunStats stats;
 
@@ -51,77 +50,48 @@ public class DefaultGun : MonoBehaviour
     float TimeSinceFire;
 
     //A simple method that checks if the gun can be shot depending on the gun's fireRate.
-    private bool gunAvailable() => !currentGun.reload && TimeSinceFire > 1f / (currentGun.fireRate / 60f);
+    private bool gunAvailable() => !currentGun.reload && TimeSinceFire > 1f / (fireRate / 60f);
 
     //Sound manager to play the firing sound
     public GunAudio soundManager;
 
     public void Start()
     {
-
         //The initial portion of the script being active is assigning all of the values of the gun's assigned scriptableObject to
         //this gun's primitive variables.
-        gunName = stats.gunName;
-        ammoCount = stats.ammoCount;
-        damage = stats.damage;
-        reload = stats.reload;
-        range = stats.range;
-        reloadDuration = stats.reloadDuration;
-        hasSpread = stats.hasSpread;
-        fireRate = stats.fireRate;
-        tempAmmo = stats.tempAmmo;
-        gunRarity = stats.gunRarity;
 
-
+            gunName = stats.gunName;
+            ammoCount = stats.ammoCount;
+            damage = stats.damage;
+            reload = stats.reload;
+            range = stats.range;
+            reloadDuration = stats.reloadDuration;
+            hasSpread = stats.hasSpread;
+            fireRate = stats.fireRate;
+            tempAmmo = stats.tempAmmo;
+            gunRarity = stats.gunRarity;
+       
         //If the player is currently holding the gun, the primitive values in this gun are set to the current gun scriptableObject.
         if (transform.parent != null)
         {
             setToCurrent();
         }
-        
-        //self-explanatory
-        setRarityofRarityRectangle();
     }
 
     void setToCurrent()
     {
         //This will set the values of the primitive variables in this gun to the current gun scriptableObject, which will be accessed by the Shoot() method.
-        currentGun.gunName = gunName;
-        currentGun.ammoCount = ammoCount;        
-        currentGun.damage = damage;
-        currentGun.reload = reload;        
-        currentGun.range = range;       
-        currentGun.reloadDuration = reloadDuration;       
-        currentGun.hasSpread = hasSpread;        
-        currentGun.fireRate = fireRate;        
-        currentGun.tempAmmo = tempAmmo;        
-        currentGun.gunRarity = gunRarity;
-
-    }
-
-    void setRarityofRarityRectangle()
-    {
-        //Depending on the rarity of the gun, the rarityRectangle's material is set to the appropriate rarity color.
-        rarityRectangle = gameObject.transform.GetChild(gameObject.transform.childCount - 1).gameObject;
-
-        if (gunRarity == GunStats.Rarity.Common)
-        {
-            rarityRectangle.GetComponent<MeshRenderer>().material = common;
-
-            Debug.Log("It worked!");
-        }
-        else if (gunRarity == GunStats.Rarity.Uncommon)
-        {
-            rarityRectangle.GetComponent<MeshRenderer>().material = uncommon;
-        }
-        else if (gunRarity == GunStats.Rarity.Rare)
-        {
-            rarityRectangle.GetComponent<MeshRenderer>().material = rare;
-        }
-        else if (gunRarity == GunStats.Rarity.Epic)
-        {
-            rarityRectangle.GetComponent<MeshRenderer>().material = epic;
-        }
+            currentGun.gunName = gunName;
+            currentGun.ammoCount = ammoCount;
+            currentGun.damage = damage;
+            currentGun.reload = reload;
+            currentGun.range = range;
+            currentGun.reloadDuration = reloadDuration;
+            currentGun.hasSpread = hasSpread;
+            currentGun.fireRate = fireRate;
+            currentGun.tempAmmo = tempAmmo;
+            currentGun.gunRarity = gunRarity;
+        
     }
 
     public void Shoot()
@@ -137,7 +107,7 @@ public class DefaultGun : MonoBehaviour
             RaycastHit hit;
 
             //If the gun is not between shots and the gun's magazine is not empty...
-            if ((currentGun.tempAmmo > 0) && (gunAvailable()))
+            if ((tempAmmo > 0) && (gunAvailable()))
             {
 
                 //Plays the muzzle particle effect for its appropriate length of time.
@@ -149,21 +119,27 @@ public class DefaultGun : MonoBehaviour
                 Debug.Log(currentGun.tempAmmo);
 
                 //If the rayCast hits an object
-                if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, currentGun.range))
+                if (cam != null)
                 {
-                    Enemy enemy = hit.transform.GetComponent<Enemy>();
-
-                    //If it hits a gameObject that has teh enemy script, that enemy's health goes down.
-                    if (enemy != null)
+                    if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, currentGun.range))
                     {
-                        enemy.healthDown(currentGun.damage);
-                    }
+                        Enemy enemy = hit.transform.GetComponent<Enemy>();
 
-                    Debug.Log(hit.transform.name);
+                        //If it hits a gameObject that has teh enemy script, that enemy's health goes down.
+                        if (enemy != null)
+                        {
+                            enemy.healthDown(currentGun.damage);
+                        }
+
+
+                        Debug.Log(hit.transform.name);
+                    }
                 }
+                
 
                 //The gun's ammo decreases and the time since the last shot is set to zero.
                 currentGun.tempAmmo--;
+                tempAmmo--;
                 TimeSinceFire = 0;
             }
             else if (currentGun.tempAmmo == 0)
@@ -192,7 +168,10 @@ public class DefaultGun : MonoBehaviour
         //Increments the time since the last shot.
         TimeSinceFire += Time.deltaTime;
 
-        ammoDisplay.text = currentGun.tempAmmo.ToString();
+        if (ammoDisplay != null)
+        {
+            ammoDisplay.text = currentGun.tempAmmo.ToString();
+        }
     }
 
     private IEnumerator Reload()
@@ -207,6 +186,7 @@ public class DefaultGun : MonoBehaviour
 
         //reloading the gun
         currentGun.tempAmmo = currentGun.ammoCount;
+        tempAmmo = stats.tempAmmo;
         currentGun.reload = false;
         Debug.Log("Done!");
     }

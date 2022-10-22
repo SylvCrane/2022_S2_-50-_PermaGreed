@@ -13,6 +13,8 @@ public class MainMenu : MonoBehaviour
         //Because of how the scenes are ordered in the Build settings, this assigns the current scene to the Game, as it is the value of 1.
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void QuitButton()

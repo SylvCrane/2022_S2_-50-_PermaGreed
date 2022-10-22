@@ -14,13 +14,12 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Start()
     {
-        
+     
     }
 
     // This is to test health being damaged by pressing the 2 keywords
     void Update()
-    {        
-
+    {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             PlayerTakeDmg(20);
@@ -39,6 +38,8 @@ public class PlayerBehaviour : MonoBehaviour
             deathSound.Play();
             death.whenPlayerDies();
             SceneManager.LoadScene("MainMenu");
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 
