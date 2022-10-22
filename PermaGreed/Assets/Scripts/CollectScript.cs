@@ -67,6 +67,17 @@ public class CollectScript : MonoBehaviour
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         transform.localScale = Vector3.one;
 
+        setSubjectiveSizeOfGun();
+
+        rb.isKinematic = true;
+        co.isTrigger = true;
+        gun.enabled = true;
+
+        
+    }
+
+    private void setSubjectiveSizeOfGun()
+    {
         if (this.gameObject.name.Contains("ScifiHandGun"))
         {
             transform.localEulerAngles = new Vector3(0, 90, 0);
@@ -82,12 +93,64 @@ public class CollectScript : MonoBehaviour
             transform.localRotation = Quaternion.Euler(Vector3.zero);
             transform.localScale = Vector3.one;
         }
-
-        rb.isKinematic = true;
-        co.isTrigger = true;
-        gun.enabled = true;
-
-        
+        else if (this.gameObject.name.Contains("AK"))
+        {
+            transform.localEulerAngles = new Vector3(0, -90, 0);
+            transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+        }
+        else if (this.gameObject.name.Contains("modernRifle"))
+        {
+            transform.localEulerAngles = new Vector3(0, 0, 0);
+            transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
+        }
+        else if (this.gameObject.name.Contains("ItalianRifle"))
+        {
+            transform.localEulerAngles = new Vector3(0, -180, 0);
+            transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        }
+        else if (this.gameObject.name.Contains("PumpShotgun"))
+        {
+            transform.localEulerAngles = new Vector3(0, 90, 0);
+            transform.localScale = new Vector3(0.07f, 0.07f, 0.07f);
+        }
+        else if (this.gameObject.name.Contains("ActionShotgun"))
+        {
+            transform.localEulerAngles = new Vector3(0, -90, 0);
+            transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        }
+        else if (this.gameObject.name.Contains("DoubleBarrel"))
+        {
+            transform.localEulerAngles = new Vector3(0, 90, 0);
+            transform.localScale = new Vector3(0.07f, 0.07f, 0.07f);
+        }
+        else if (this.gameObject.name.Contains("StandardSniper"))
+        {
+            transform.localEulerAngles = new Vector3(0, 0, 0);
+            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        }
+        else if (this.gameObject.name.Contains("HuntingRifle"))
+        {
+            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        }
+        else if (this.gameObject.name.Contains("ScifiRifle"))
+        {
+            transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            transform.localEulerAngles = new Vector3(-90, 0, 0);
+        }
+        else if (this.gameObject.name.Contains("Endeavor"))
+        {
+            transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            transform.localEulerAngles = new Vector3(0, 180, 0);
+        }
+        else if (this.gameObject.name.Contains("Darwin"))
+        {
+            transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        }
+        else if (this.gameObject.name.Contains("Remembrance"))
+        {
+            transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+            transform.localEulerAngles = new Vector3(0, -90, 0);
+        }
     }
 
     private void drop()

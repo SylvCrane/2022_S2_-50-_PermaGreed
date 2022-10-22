@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Gun", menuName = "Gun")]
 public class GunStats : ScriptableObject
 {
-    public enum Rarity { Common, Uncommon, Rare, Epic };
+    public enum Rarity { Common, Uncommon, Rare, Epic, Legendary };
 
     public string gunName;
     public int ammoCount;
