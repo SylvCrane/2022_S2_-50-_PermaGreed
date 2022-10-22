@@ -95,8 +95,8 @@ public class CollectScript : MonoBehaviour
         }
         else if (this.gameObject.name.Contains("AK"))
         {
-            transform.localEulerAngles = new Vector3(0, -180, 0);
-            transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+            transform.localEulerAngles = new Vector3(0, -90, 0);
+            transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
         }
         else if (this.gameObject.name.Contains("modernRifle"))
         {
@@ -105,8 +105,8 @@ public class CollectScript : MonoBehaviour
         }
         else if (this.gameObject.name.Contains("ItalianRifle"))
         {
-            transform.localEulerAngles = new Vector3(0, -90, 0);
-            transform.localScale = new Vector3(0.07f, 0.07f, 0.07f);
+            transform.localEulerAngles = new Vector3(0, -180, 0);
+            transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         }
         else if (this.gameObject.name.Contains("PumpShotgun"))
         {
