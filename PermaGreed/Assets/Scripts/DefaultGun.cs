@@ -113,24 +113,54 @@ public class DefaultGun : MonoBehaviour
                 Debug.Log(currentGun.tempAmmo);
 
                 //If the rayCast hits an object
-                if (cam != null)
+                
+                if (hasSpread)
                 {
-                    if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, currentGun.range))
+                    for (int i = 0; i < 4; i++)
                     {
-                        Enemy enemy = hit.transform.GetComponent<Enemy>();
+                        float xValue = Random.Range(-1, 2);
+                        float yValue = Random.Range(-1, 2);
 
-                        //If it hits a gameObject that has teh enemy script, that enemy's health goes down.
-                        if (enemy != null)
+                        Vector3 IndividualPellet = cam.transform.forward + new Vector3(xValue, yValue, 0);
+                        
+                        if (cam != null)
                         {
-                            enemy.healthDown(currentGun.damage);
+                            if (Physics.Raycast(cam.transform.position, IndividualPellet, out hit, currentGun.range))
+                            {
+                                Enemy enemy = hit.transform.GetComponent<Enemy>();
+
+                                //If it hits a gameObject that has teh enemy script, that enemy's health goes down.
+                                if (enemy != null)
+                                {
+                                    enemy.healthDown(currentGun.damage);
+                                }
+
+
+                                Debug.Log(hit.transform.name);
+                            }
                         }
-
-
-                        Debug.Log(hit.transform.name);
                     }
                 }
-                
+                else
+                {
+                    if (cam != null)
+                    {
+                        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, currentGun.range))
+                        {
+                            Enemy enemy = hit.transform.GetComponent<Enemy>();
 
+                            //If it hits a gameObject that has teh enemy script, that enemy's health goes down.
+                            if (enemy != null)
+                            {
+                                enemy.healthDown(currentGun.damage);
+                            }
+
+
+                            Debug.Log(hit.transform.name);
+                        }
+                    }
+                }
+              
                 //The gun's ammo decreases and the time since the last shot is set to zero.
                 currentGun.tempAmmo--;
                 tempAmmo--;
@@ -166,6 +196,11 @@ public class DefaultGun : MonoBehaviour
         {
             ammoDisplay.text = currentGun.tempAmmo.ToString();
         }
+
+        if (Input.GetButton("Fire1"))
+        {
+            Shoot();
+        }
     }
 
     private IEnumerator Reload()
@@ -183,5 +218,7 @@ public class DefaultGun : MonoBehaviour
         tempAmmo = stats.tempAmmo;
         currentGun.reload = false;
         Debug.Log("Done!");
+
+        TimeSinceFire = 0;
     }
 }
