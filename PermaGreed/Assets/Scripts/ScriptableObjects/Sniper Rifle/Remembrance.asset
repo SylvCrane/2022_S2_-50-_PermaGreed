@@ -21,4 +21,4 @@ MonoBehaviour:
   hasSpread: 0
   fireRate: 20
   tempAmmo: 3
-  gunRarity: 0
+  gunRarity: 4

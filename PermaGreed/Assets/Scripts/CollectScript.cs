@@ -158,6 +158,9 @@ public class CollectScript : MonoBehaviour
 
     private void drop()
     {
+        //Sound code
+        SoundManager.s_ASdrop.Play();
+
         equipped = false;
         full = false;
 

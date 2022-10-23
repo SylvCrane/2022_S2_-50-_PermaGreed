@@ -52,9 +52,6 @@ public class DefaultGun : MonoBehaviour
     //A simple method that checks if the gun can be shot depending on the gun's fireRate.
     private bool gunAvailable() => !currentGun.reload && TimeSinceFire > 1f / (fireRate / 60f);
 
-    //Sound manager to play the firing sound
-    public GunAudio soundManager;
-
     public void Start()
     {
         //The initial portion of the script being active is assigning all of the values of the gun's assigned scriptableObject to
@@ -114,7 +111,18 @@ public class DefaultGun : MonoBehaviour
                 muzzle.Play();
 
                 //Plays the shooting sound effect for the gun
-                //soundManager.playFire();
+                if (((int) stats.gunRarity) == 0)
+                {
+                    SoundManager.s_common.Play();
+                }
+                else if (((int)stats.gunRarity) == 1)
+                {
+                    SoundManager.s_uncommon.Play();
+                }
+                else if (((int)gunRarity) >= 2)
+                {
+                    SoundManager.s_rare.Play();
+                }
 
                 Debug.Log(currentGun.tempAmmo);
 
