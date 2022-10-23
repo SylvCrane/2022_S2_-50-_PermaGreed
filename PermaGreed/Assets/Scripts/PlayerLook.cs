@@ -6,9 +6,28 @@ public class PlayerLook : MonoBehaviour
 {
     public Camera cam;
     private float xRotation = 0f;
+    public float GAME_SENS = GameData.GameSenstivity;
 
-    public float xSensitivity = 30f;
-    public float ySensitivity = 30f;
+    //Default Sensitivity for both x and y is 30.
+    public float xSensitivity;
+    public float ySensitivity;
+
+    private void Awake()
+    {
+        //If the player manages to break the game sensitivity or testing on game scene, this will activate.
+        if(GAME_SENS <= 0f)
+        {
+            xSensitivity = 30f;
+            ySensitivity = 30f;
+        }
+
+        //Otherwise, just copy settings
+        else
+        {
+            xSensitivity = GAME_SENS;
+            ySensitivity = GAME_SENS;
+        }
+    }
 
     public void ProcessLook(Vector2 input)
     {
