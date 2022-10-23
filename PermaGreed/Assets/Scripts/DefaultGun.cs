@@ -126,16 +126,22 @@ public class DefaultGun : MonoBehaviour
 
                 Debug.Log(currentGun.tempAmmo);
 
+                int additionalpellet = 0;
+                //Checks if the player is the soldier class
+                if (string.Compare(GameData.plClass, "sol") == 0)
+                {
+                    additionalpellet = 1;
+                }
+
                 //If the rayCast hits an object
-                
                 if (hasSpread)
                 {
-                    for (int i = 0; i < 4; i++)
+                    for (int i = 0; i < (4 + additionalpellet); i++)
                     {
                         float xValue = Random.Range(-1, 2);
 
                         Vector3 IndividualPellet = cam.transform.forward + new Vector3(xValue, 0, 0);
-                        
+
                         if (cam != null)
                         {
                             if (Physics.Raycast(cam.transform.position, IndividualPellet, out hit, currentGun.range))
@@ -146,6 +152,40 @@ public class DefaultGun : MonoBehaviour
                                 if (enemy != null)
                                 {
                                     enemy.healthDown(currentGun.damage);
+                                }
+
+
+                                Debug.Log(hit.transform.name);
+                            }
+                        }
+                    }
+                }
+                else if ((!hasSpread) && (additionalpellet > 0))//For if the soldier class is using a weapon that does not usually have spread
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        float xValue = Random.Range(-1, 2);
+
+                        Vector3 IndividualPellet = cam.transform.forward + new Vector3(xValue, 0, 0);
+
+                        if (cam != null)
+                        {
+                            if (Physics.Raycast(cam.transform.position, IndividualPellet, out hit, currentGun.range))
+                            {
+                                Enemy enemy = hit.transform.GetComponent<Enemy>();
+
+                                //If it hits a gameObject that has teh enemy script, that enemy's health goes down.
+                                if (enemy != null)
+                                {
+                                    //This is just to balance the otherwise massive damge increase that weapons without spread would get
+                                    if(i == 0)
+                                    {
+                                        enemy.healthDown(currentGun.damage);
+                                    }
+                                    else
+                                    {
+                                        enemy.healthDown((currentGun.damage) * 0.25f);
+                                    }
                                 }
 
 
