@@ -35,14 +35,4 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
-    void start()
-    {
-        
-    }
-
-    void Update()
-    {
-        Debug.Log(gameManager._playerHealth._currentHealth + " " + gameManager._playerHealth._currentMaxHealth);
-    }
 }

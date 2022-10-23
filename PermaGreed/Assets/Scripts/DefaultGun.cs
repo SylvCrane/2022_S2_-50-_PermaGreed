@@ -114,7 +114,7 @@ public class DefaultGun : MonoBehaviour
                 muzzle.Play();
 
                 //Plays the shooting sound effect for the gun
-                soundManager.playFire();
+                //soundManager.playFire();
 
                 Debug.Log(currentGun.tempAmmo);
 

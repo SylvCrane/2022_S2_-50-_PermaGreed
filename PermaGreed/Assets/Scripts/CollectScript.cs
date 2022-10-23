@@ -57,6 +57,11 @@ public class CollectScript : MonoBehaviour
 
     public void collect()
     {
+        //Sound code
+        SoundManager.s_ASpickup.Play();
+
+        //Pickup code
+
         equipped = true;
         this.gameObject.GetComponent<DefaultGun>().updateCurrentOnce = true;
         full = true;
@@ -71,9 +76,7 @@ public class CollectScript : MonoBehaviour
 
         rb.isKinematic = true;
         co.isTrigger = true;
-        gun.enabled = true;
-
-        
+        gun.enabled = true;   
     }
 
     private void setSubjectiveSizeOfGun()
