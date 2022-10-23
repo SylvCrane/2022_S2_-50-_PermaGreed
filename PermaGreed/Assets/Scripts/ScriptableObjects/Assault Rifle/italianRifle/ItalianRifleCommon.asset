@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e19010f7065c24a96de490f1a705f2, type: 3}
   m_Name: ItalianRifleCommon
   m_EditorClassIdentifier: 
-  gunName: ItalianRIfle
+  gunName: ItalianRifle
   ammoCount: 75
   damage: 1
   reload: 0
