@@ -55,8 +55,11 @@ public class GunManager : MonoBehaviour
                         }
                         else
                         {
+                            Debug.Log(GameData.gunName);
+                            Debug.Log("The gun is wrong");
                             string newGunNamePartial = GameData.gunName;
                             newGunName = newGunNamePartial + GameData.gunRarity;
+                            Debug.Log(newGunName);
                         }
                         
                         replacementGun = guns.transform.Find(newGunName).gameObject;
@@ -88,10 +91,6 @@ public class GunManager : MonoBehaviour
                     //Setting the replacement gun to be a child of the gunContainer
                     replacementGun.transform.parent = gunContainer.transform;
                     GameObject.Destroy(gunToReplace);
-
-                    //Making sure the Shoot() function still works when a gun is replaced
-                    player.GetComponent<InputManager>().gun = replacementGun;
-                    player.GetComponent<InputManager>().gunSwitch = true;
 
                 }
             }
