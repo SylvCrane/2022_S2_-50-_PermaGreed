@@ -1,23 +1,50 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ScreenSetting : MonoBehaviour
 {
-    public static FullScreenMode screenModeConfig;
-    public Toggle gameToggle;
+    Resolution[] resolutions;
+    public TMP_Dropdown resolutionBar;
 
-    public void WindowedMode() //Uses dynamic bool
+    private void Start()
     {
-        bool windowToggle = gameToggle.GetComponent<Toggle>().isOn;
-        //Debug.Log(windowToggle);
+        resolutions = Screen.resolutions;
 
-        if(windowToggle) //If this is true..
+        resolutionBar.ClearOptions(); //Clear any options before adding anything in 
+
+        List<string> OptionsLists = new List<string>();
+
+        int indexCurrent = 0;
+        for(int q = 0; q < resolutions.Length; q++)
         {
-            screenModeConfig = FullScreenMode.Windowed;
+            string compatOption = resolutions[q].width + "x" + resolutions[q].height;
+            OptionsLists.Add(compatOption);
+
+            if(resolutions[q].width == Screen.currentResolution.width && resolutions[q].height == Screen.currentResolution.height)
+            {
+                indexCurrent = q;
+            }
         }
-        else
-        {
-            screenModeConfig = FullScreenMode.FullScreenWindow;
-        }
+
+        resolutionBar.AddOptions(OptionsLists);
+        //Setting the resolution to the current computers resolution
+        resolutionBar.value = indexCurrent;
+        resolutionBar.RefreshShownValue();
     }
+
+    public void SetResolution(int indexLocate)
+    {
+        Resolution resolutionVal = resolutions[indexLocate];
+        Screen.SetResolution(resolutionVal.width, resolutionVal.height, Screen.fullScreen);
+    }
+
+    public void WindowedMode(bool windowToggle) //Windowed Mode
+    {
+        Screen.fullScreen = windowToggle;
+    }
+
+
+
+
 }

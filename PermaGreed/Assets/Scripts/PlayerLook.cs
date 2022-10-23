@@ -14,8 +14,19 @@ public class PlayerLook : MonoBehaviour
 
     private void Awake()
     {
-        xSensitivity = GAME_SENS;
-        ySensitivity = GAME_SENS;
+        //If the player manages to break the game sensitivity or testing on game scene, this will activate.
+        if(GAME_SENS <= 0f)
+        {
+            xSensitivity = 30f;
+            ySensitivity = 30f;
+        }
+
+        //Otherwise, just copy settings
+        else
+        {
+            xSensitivity = GAME_SENS;
+            ySensitivity = GAME_SENS;
+        }
     }
 
     public void ProcessLook(Vector2 input)

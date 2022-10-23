@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameData : MonoBehaviour
@@ -14,8 +12,13 @@ public class GameData : MonoBehaviour
     public static float damage, range, reloadDuration, fireRate, tempAmmo;
     public static GunStats.Rarity gunRarity;
     public static int currency;
+
+    //Misc Data
     public static Color gunColour;
     public static float GameSenstivity;
+    public static int gainedCurrency;
+    public static int kills;
+    public static bool isPlayerDead;
 
 
 

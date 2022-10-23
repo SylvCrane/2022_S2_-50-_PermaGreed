@@ -42,6 +42,25 @@ public class RGBValue : MonoBehaviour
         redBox.onValueChanged.AddListener(InputSliderMergeRed);
         greenBox.onValueChanged.AddListener(InputSliderMergeBlu);
         blueBox.onValueChanged.AddListener(InputSliderMergeGrn);
+
+        if (!GameData.gunColour.Equals(Color.clear)) //If the values are not set.
+        {
+            Debug.Log("Yes, RGB values are returned");
+
+            Color previousCol = GameData.gunColour;
+
+            float previousColRed = previousCol.r * 255f;
+            float previousColBlue = previousCol.b * 255f;
+            float previousColGreen = previousCol.g * 255f;
+
+            redBox.value = previousColRed;
+            greenBox.value = previousColGreen;
+            blueBox.value = previousColBlue;
+
+            redInput.text = previousColRed + "";
+            greenInput.text = previousColGreen + "";
+            blueInput.text = previousColBlue + "";
+        }
     }
 
     public void InputSliderMergeRed(float rgbVar)
