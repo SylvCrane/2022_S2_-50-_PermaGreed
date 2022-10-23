@@ -55,7 +55,7 @@ public class UpgradeGun : MonoBehaviour
             GameData.gunRarity = GunStats.Rarity.Epic;
             Debug.Log(GameData.gunRarity);
         }
-        else if (GameData.gunRarity == GunStats.Rarity.Epic)
+        else if (GameData.gunRarity == GunStats.Rarity.Epic || GameData.gunRarity == GunStats.Rarity.Legendary)
         {
             //Of course, there is a limit to the upgrades. Therefore, if the player has maxed out their upgrades, the upgradeMenu is set to not active
             //and the cannotUpgradeMenu is set to active. This also occurs when the player does not have enough funds.

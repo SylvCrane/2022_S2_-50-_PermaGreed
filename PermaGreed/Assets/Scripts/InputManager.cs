@@ -28,7 +28,7 @@ public class InputManager : MonoBehaviour
         look = GetComponent<PlayerLook>();
         gunScript = gun.GetComponent<DefaultGun>();
 
-        onFoot.Shoot.performed += ctx => gunScript.Shoot();
+        //onFoot.Shoot.performed += ctx => gunScript.Shoot();
         onFoot.Jump.performed += ctx => motor.Jump(); //Jump Function - Anytime our jump is performed, our callbackcontext (ctx) to call our motor.Jump function
     }
 

@@ -38,5 +38,10 @@ public class rarityIndicator : MonoBehaviour
             this.gameObject.GetComponent<Text>().text = "Epic";
             this.gameObject.GetComponent<Text>().color = new Color(255, 175, 0);
         }
+        else if (GameData.gunRarity == GunStats.Rarity.Legendary)
+        {
+            this.gameObject.GetComponent<Text>().text = "Legendary";
+            this.gameObject.GetComponent<Text>().color = new Color(255, 154, 0);
+        }
     }
 }
