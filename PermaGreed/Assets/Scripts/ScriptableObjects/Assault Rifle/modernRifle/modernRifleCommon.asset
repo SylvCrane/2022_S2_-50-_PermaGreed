@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e19010f7065c24a96de490f1a705f2, type: 3}
   m_Name: modernRifleCommon
   m_EditorClassIdentifier: 
-  gunName: modernRIfle
+  gunName: modernRifle
   ammoCount: 50
   damage: 3
   reload: 0
