@@ -15,6 +15,12 @@ public class PlayerMotor : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        //if the player is the soldier class speed is increased
+        if (string.Compare(GameData.plClass, "sol") == 0)
+        {
+            speed = speed * 1.1f;
+        }
     }
 
     // Update is called once per frame

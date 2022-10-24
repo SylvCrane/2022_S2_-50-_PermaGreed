@@ -157,6 +157,7 @@ MonoBehaviour:
   balance: {fileID: 0}
   damageText: {fileID: 2216109667331649800, guid: 6553cb07c1a7eec46bdb577ce0682552, type: 3}
   gun: {fileID: 0}
+  healthPack: {fileID: 0}
 --- !u!1 &7366736098609336605
 GameObject:
   m_ObjectHideFlags: 0
