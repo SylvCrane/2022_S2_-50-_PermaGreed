@@ -32,6 +32,7 @@ public class DefaultGun : MonoBehaviour
     public float fireRate;
     public float tempAmmo;
     public GunStats.Rarity gunRarity;
+    public bool gunCheck; //Used to verify a gun is active for sound effects
 
     //This rectangle will change in colour depending on the rarity of the gun, in cooperation with the materials 
     //seen below.
@@ -111,17 +112,25 @@ public class DefaultGun : MonoBehaviour
                 muzzle.Play();
 
                 //Plays the shooting sound effect for the gun
-                if (((int) stats.gunRarity) == 0)
+
+                try
                 {
-                    SoundManager.s_common.Play();
+                    if (((int)stats.gunRarity) == 0)
+                    {
+                        SoundManager.s_common.Play();
+                    }
+                    else if (((int)stats.gunRarity) == 1)
+                    {
+                        SoundManager.s_uncommon.Play();
+                    }
+                    else if (((int)gunRarity) >= 2)
+                    {
+                        SoundManager.s_rare.Play();
+                    }
                 }
-                else if (((int)stats.gunRarity) == 1)
+                catch (System.Exception e)
                 {
-                    SoundManager.s_uncommon.Play();
-                }
-                else if (((int)gunRarity) >= 2)
-                {
-                    SoundManager.s_rare.Play();
+
                 }
 
                 Debug.Log(currentGun.tempAmmo);
