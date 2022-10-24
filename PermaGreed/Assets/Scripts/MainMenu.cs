@@ -14,6 +14,20 @@ public class MainMenu : MonoBehaviour
         GameData.isPlayerDead = false;
     }
 
+    public void aridMap()
+    {
+        GameData.plClass = "sol";
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameData.isPlayerDead = false;
+    }
+
+    public void crystalMap()
+    {
+        GameData.plClass = "sol";
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        GameData.isPlayerDead = false;
+    }
+
     public void QuitButton()
     {
         Application.Quit();
