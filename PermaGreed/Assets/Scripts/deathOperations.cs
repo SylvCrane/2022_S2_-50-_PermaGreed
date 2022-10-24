@@ -10,6 +10,10 @@ public class deathOperations : MonoBehaviour
     {
         GameData.currency += this.gameObject.GetComponent<PlayerBalance>().balance;
 
+        //Debug.Log("Gained Currency = " + GameData.gainedCurrency);
+        //Debug.Log("Kills = " + GameData.kills);
+        GameData.isPlayerDead = true;
+
         try
         {
             if (gunContainer.transform.GetChild(0) != null)

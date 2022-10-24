@@ -9,9 +9,27 @@ public class GameManager : MonoBehaviour
 
     public UnitHealth _playerHealth = new UnitHealth(100, 100);
 
+    void Start()
+    {
+        
+    }
+
+    public void checkClass()
+    {
+        if (string.Compare(GameData.plClass, "sol") == 0)
+        {
+            double healthboost = _playerHealth._currentMaxHealth * 0.25f;
+
+            _playerHealth._currentMaxHealth += (int)healthboost;
+            _playerHealth._currentHealth += (int)healthboost;
+        }
+    }
+
     // This deletes a duplicate GameManager
     void Awake()
     {
+        this.checkClass();
+
         if (gameManager != null && gameManager != this)
         {
             Destroy(this);

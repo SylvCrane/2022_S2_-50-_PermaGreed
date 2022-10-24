@@ -50,74 +50,45 @@ public class DefaultGun : MonoBehaviour
     float TimeSinceFire;
 
     //A simple method that checks if the gun can be shot depending on the gun's fireRate.
-    private bool gunAvailable() => !currentGun.reload && TimeSinceFire > 1f / (currentGun.fireRate / 60f);
+    private bool gunAvailable() => !currentGun.reload && TimeSinceFire > 1f / (fireRate / 60f);
 
     public void Start()
     {
-
         //The initial portion of the script being active is assigning all of the values of the gun's assigned scriptableObject to
         //this gun's primitive variables.
-        gunName = stats.gunName;
-        ammoCount = stats.ammoCount;
-        damage = stats.damage;
-        reload = stats.reload;
-        range = stats.range;
-        reloadDuration = stats.reloadDuration;
-        hasSpread = stats.hasSpread;
-        fireRate = stats.fireRate;
-        tempAmmo = stats.tempAmmo;
-        gunRarity = stats.gunRarity;
 
-
+            gunName = stats.gunName;
+            ammoCount = stats.ammoCount;
+            damage = stats.damage;
+            reload = stats.reload;
+            range = stats.range;
+            reloadDuration = stats.reloadDuration;
+            hasSpread = stats.hasSpread;
+            fireRate = stats.fireRate;
+            tempAmmo = stats.tempAmmo;
+            gunRarity = stats.gunRarity;
+       
         //If the player is currently holding the gun, the primitive values in this gun are set to the current gun scriptableObject.
         if (transform.parent != null)
         {
             setToCurrent();
         }
-        
-        //self-explanatory
-        setRarityofRarityRectangle();
     }
 
     void setToCurrent()
     {
         //This will set the values of the primitive variables in this gun to the current gun scriptableObject, which will be accessed by the Shoot() method.
-        currentGun.gunName = gunName;
-        currentGun.ammoCount = ammoCount;        
-        currentGun.damage = damage;
-        currentGun.reload = reload;        
-        currentGun.range = range;       
-        currentGun.reloadDuration = reloadDuration;       
-        currentGun.hasSpread = hasSpread;        
-        currentGun.fireRate = fireRate;        
-        currentGun.tempAmmo = tempAmmo;        
-        currentGun.gunRarity = gunRarity;
-
-    }
-
-    void setRarityofRarityRectangle()
-    {
-        //Depending on the rarity of the gun, the rarityRectangle's material is set to the appropriate rarity color.
-        rarityRectangle = gameObject.transform.GetChild(gameObject.transform.childCount - 1).gameObject;
-
-        if (gunRarity == GunStats.Rarity.Common)
-        {
-            rarityRectangle.GetComponent<MeshRenderer>().material = common;
-
-            Debug.Log("It worked!");
-        }
-        else if (gunRarity == GunStats.Rarity.Uncommon)
-        {
-            rarityRectangle.GetComponent<MeshRenderer>().material = uncommon;
-        }
-        else if (gunRarity == GunStats.Rarity.Rare)
-        {
-            rarityRectangle.GetComponent<MeshRenderer>().material = rare;
-        }
-        else if (gunRarity == GunStats.Rarity.Epic)
-        {
-            rarityRectangle.GetComponent<MeshRenderer>().material = epic;
-        }
+            currentGun.gunName = gunName;
+            currentGun.ammoCount = ammoCount;
+            currentGun.damage = damage;
+            currentGun.reload = reload;
+            currentGun.range = range;
+            currentGun.reloadDuration = reloadDuration;
+            currentGun.hasSpread = hasSpread;
+            currentGun.fireRate = fireRate;
+            currentGun.tempAmmo = tempAmmo;
+            currentGun.gunRarity = gunRarity;
+        
     }
 
     public void Shoot()
@@ -133,31 +104,119 @@ public class DefaultGun : MonoBehaviour
             RaycastHit hit;
 
             //If the gun is not between shots and the gun's magazine is not empty...
-            if ((currentGun.tempAmmo > 0) && (gunAvailable()))
+            if ((tempAmmo > 0) && (gunAvailable()))
             {
 
                 //Plays the muzzle particle effect for its appropriate length of time.
                 muzzle.Play();
 
-                Debug.Log(currentGun.tempAmmo);
-
-                //If the rayCast hits an object
-                if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, currentGun.range))
+                //Plays the shooting sound effect for the gun
+                if (((int) stats.gunRarity) == 0)
                 {
-                    Enemy enemy = hit.transform.GetComponent<Enemy>();
-
-                    //If it hits a gameObject that has teh enemy script, that enemy's health goes down.
-                    if (enemy != null)
-                    {
-                        enemy.healthDown(currentGun.damage);
-                    }
-
-
-                    Debug.Log(hit.transform.name);
+                    SoundManager.s_common.Play();
+                }
+                else if (((int)stats.gunRarity) == 1)
+                {
+                    SoundManager.s_uncommon.Play();
+                }
+                else if (((int)gunRarity) >= 2)
+                {
+                    SoundManager.s_rare.Play();
                 }
 
+                Debug.Log(currentGun.tempAmmo);
+
+                int additionalpellet = 0;
+                //Checks if the player is the soldier class
+                if (string.Compare(GameData.plClass, "sol") == 0)
+                {
+                    additionalpellet = 1;
+                }
+
+                //If the rayCast hits an object
+                if (hasSpread)
+                {
+                    for (int i = 0; i < (4 + additionalpellet); i++)
+                    {
+                        float xValue = Random.Range(-1, 2);
+
+                        Vector3 IndividualPellet = cam.transform.forward + new Vector3(xValue, 0, 0);
+
+                        if (cam != null)
+                        {
+                            if (Physics.Raycast(cam.transform.position, IndividualPellet, out hit, currentGun.range))
+                            {
+                                Enemy enemy = hit.transform.GetComponent<Enemy>();
+
+                                //If it hits a gameObject that has teh enemy script, that enemy's health goes down.
+                                if (enemy != null)
+                                {
+                                    enemy.healthDown(currentGun.damage);
+                                }
+
+
+                                Debug.Log(hit.transform.name);
+                            }
+                        }
+                    }
+                }
+                else if ((!hasSpread) && (additionalpellet > 0))//For if the soldier class is using a weapon that does not usually have spread
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        float xValue = Random.Range(-1, 2);
+
+                        Vector3 IndividualPellet = cam.transform.forward + new Vector3(xValue, 0, 0);
+
+                        if (cam != null)
+                        {
+                            if (Physics.Raycast(cam.transform.position, IndividualPellet, out hit, currentGun.range))
+                            {
+                                Enemy enemy = hit.transform.GetComponent<Enemy>();
+
+                                //If it hits a gameObject that has teh enemy script, that enemy's health goes down.
+                                if (enemy != null)
+                                {
+                                    //This is just to balance the otherwise massive damge increase that weapons without spread would get
+                                    if(i == 0)
+                                    {
+                                        enemy.healthDown(currentGun.damage);
+                                    }
+                                    else
+                                    {
+                                        enemy.healthDown((currentGun.damage) * 0.25f);
+                                    }
+                                }
+
+
+                                Debug.Log(hit.transform.name);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (cam != null)
+                    {
+                        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, currentGun.range))
+                        {
+                            Enemy enemy = hit.transform.GetComponent<Enemy>();
+
+                            //If it hits a gameObject that has teh enemy script, that enemy's health goes down.
+                            if (enemy != null)
+                            {
+                                enemy.healthDown(currentGun.damage);
+                            }
+
+
+                            Debug.Log(hit.transform.name);
+                        }
+                    }
+                }
+              
                 //The gun's ammo decreases and the time since the last shot is set to zero.
                 currentGun.tempAmmo--;
+                tempAmmo--;
                 TimeSinceFire = 0;
             }
             else if (currentGun.tempAmmo == 0)
@@ -186,7 +245,15 @@ public class DefaultGun : MonoBehaviour
         //Increments the time since the last shot.
         TimeSinceFire += Time.deltaTime;
 
-        ammoDisplay.text = currentGun.tempAmmo.ToString();
+        if (ammoDisplay != null)
+        {
+            ammoDisplay.text = currentGun.tempAmmo.ToString();
+        }
+
+        if (Input.GetButton("Fire1") && !currentGun.reload)
+        {
+            Shoot();
+        }
     }
 
     private IEnumerator Reload()
@@ -201,6 +268,7 @@ public class DefaultGun : MonoBehaviour
 
         //reloading the gun
         currentGun.tempAmmo = currentGun.ammoCount;
+        tempAmmo = stats.tempAmmo;
         currentGun.reload = false;
         Debug.Log("Done!");
     }

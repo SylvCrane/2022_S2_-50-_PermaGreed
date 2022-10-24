@@ -14,7 +14,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Start()
     {
-    
+     
     }
 
     // This is to test health being damaged by pressing the 2 keywords
@@ -31,12 +31,15 @@ public class PlayerBehaviour : MonoBehaviour
             Debug.Log(GameManager.gameManager._playerHealth.Health);
         }
 
+
         // When player health goes down to 0 the screen will be redirected to the main menu to simulate death for the time being
         if (GameManager.gameManager._playerHealth.GetHealth() <= 0)
         {
             deathSound.Play();
             death.whenPlayerDies();
             SceneManager.LoadScene("MainMenu");
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 
@@ -64,6 +67,23 @@ public class PlayerBehaviour : MonoBehaviour
         //To be able to add the sound effect when player gets healed
         healSound.Play();
 
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("HealthPack"))
+        {
+            if (GameManager.gameManager._playerHealth.Health >= 100) 
+            {
+                other.gameObject.SetActive(true);
+            }
+            if (GameManager.gameManager._playerHealth.Health < 100) 
+            {
+                other.gameObject.SetActive(false);
+                PlayerHeal(10);
+                Debug.Log(GameManager.gameManager._playerHealth.Health);
+            }
+            
+        }
     }
 }
 

@@ -7,8 +7,8 @@ public class UnitHealth
     // Health type of class for many different health modification, if needed for the future
 
     // Fields 
-    int _currentHealth;
-    int _currentMaxHealth;
+    public int _currentHealth;
+    public int _currentMaxHealth;
 
     // Properties
     public int Health
