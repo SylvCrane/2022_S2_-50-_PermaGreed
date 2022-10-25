@@ -11,15 +11,13 @@ namespace HealthDecreaseTests
         [UnityTest]
         public IEnumerator HealthDecrease()
         {
-
-            
             UnitHealth unitHealth = new UnitHealth(100, 100);
 
             unitHealth.DmgUnit(20);
 
             yield return new WaitForSeconds(4);
 
-            Assert.AreEqual(100, unitHealth._currentHealth);
+            Assert.AreEqual(80, unitHealth._currentHealth);
         }
     }
 

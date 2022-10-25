@@ -20,5 +20,5 @@ MonoBehaviour:
   reloadDuration: 2
   hasSpread: 0
   fireRate: 60
-  tempAmmo: 1
+  tempAmmo: 3
   gunRarity: 2
