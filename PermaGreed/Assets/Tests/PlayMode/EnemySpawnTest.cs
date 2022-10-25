@@ -13,13 +13,10 @@ public class EnemySpawnTest
         GameObject enemy = new GameObject();
         GameObject player = Object.Instantiate(Resources.Load("Player")) as GameObject;
 
-        GameObject map = Object.Instantiate(Resources.Load("Enviroment (Map)")) as GameObject;
-
-        map.SetActive(true);
         enemy.SetActive(true);
+        player.SetActive(true);
 
         enemy = Object.Instantiate(Resources.Load("Melee_Enemy")) as GameObject;
-        
 
         yield return new WaitForSeconds(1);
 
