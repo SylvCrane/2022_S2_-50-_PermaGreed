@@ -45,7 +45,7 @@ public class RGBValue : MonoBehaviour
 
         if (!GameData.gunColour.Equals(Color.clear)) //If the values are not set.
         {
-            Debug.Log("Yes, RGB values are returned");
+            //Debug.Log("Yes, RGB values are returned");
 
             Color previousCol = GameData.gunColour;
 
