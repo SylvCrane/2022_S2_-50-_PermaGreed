@@ -72,11 +72,11 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("HealthPack"))
         {
-            if (GameManager.gameManager._playerHealth.Health >= 100) 
+            if (GameManager.gameManager._playerHealth.Health >= GameManager.gameManager._playerHealth._currentMaxHealth) 
             {
                 other.gameObject.SetActive(true);
             }
-            if (GameManager.gameManager._playerHealth.Health < 100) 
+            if (GameManager.gameManager._playerHealth.Health < GameManager.gameManager._playerHealth._currentMaxHealth) 
             {
                 other.gameObject.SetActive(false);
                 PlayerHeal(10);

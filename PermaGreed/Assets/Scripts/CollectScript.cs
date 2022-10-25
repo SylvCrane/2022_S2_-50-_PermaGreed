@@ -16,6 +16,9 @@ public class CollectScript : MonoBehaviour
 
     public float range;
     public Transform player, gunContainer, cam;
+    
+    
+    
 
     public bool equipped; //Needed to tell if current gun is equipped
     public static bool full; //needed if to tell if any gun is equipped
