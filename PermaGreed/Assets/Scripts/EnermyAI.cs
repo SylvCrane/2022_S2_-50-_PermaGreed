@@ -48,7 +48,15 @@ public class EnermyAI : MonoBehaviour
     void Update()
     {
         distanceToTarget = Vector3.Distance(target.position, transform.position); //calculating distance from enemy to player
-        EngageTarget();
+        try
+        {
+            EngageTarget();
+        }
+        catch(System.Exception E)
+        {
+
+        }
+        
     }
 
     public void setSpawnLocation(float x, float y, float z) //warping enemy
