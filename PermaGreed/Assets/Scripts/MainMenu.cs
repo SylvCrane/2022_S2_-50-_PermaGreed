@@ -19,6 +19,9 @@ public class MainMenu : MonoBehaviour
         GameData.plClass = "sol";
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         GameData.isPlayerDead = false;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void crystalMap()
@@ -26,6 +29,10 @@ public class MainMenu : MonoBehaviour
         GameData.plClass = "sol";
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         GameData.isPlayerDead = false;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     public void QuitButton()
